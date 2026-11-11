@@ -1,614 +1,766 @@
 <!DOCTYPE html>
-<html lang="es" class="no-js" >
+<html lang="es">
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jose Sanchez · Desarrollador Shopify & Front-end</title>
+  <meta name="description" content="Jose Sanchez, desarrollador Shopify & Front-end. Temas a medida en Liquid, landing pages CRO, migraciones a Online Store 2.0 e integraciones. +20 tiendas Shopify.">
+  <meta name="theme-color" content="#0b0f0c">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Jose Sanchez · Desarrollador Shopify & Front-end">
+  <meta property="og:description" content="Tiendas Shopify que venden. Liquid avanzado, CRO, migraciones e integraciones en +20 tiendas.">
+  <meta property="og:image" content="images/work/puntofijo-hero.webp">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="apple-touch-icon" href="images/favicon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <script>document.documentElement.classList.add('js');</script>
 
-    <!--- basic page needs
-    ================================================== -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title data-i18n="title">Dev Jose Sanchez</title>
-
-    <script src="js/init.js"></script>
-
-    <!-- CSS
-    ================================================== -->
-    <link rel="stylesheet" href="css/vendor.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <!-- Font Awesome (free) for social icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- favicons
-    ================================================== -->
-   
-    <link rel="icon" type="image/png" sizes="32x32" href="images/developericon.jpg">
-    
-    
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
+<body>
 
-
-<body id="top">
-
-    
-    <!-- preloader
-    ================================================== -->
-    <div id="preloader">
-        <div id="loader" class="dots-fade">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
+  <!-- Preloader -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__inner">
+      <div class="preloader__brand"><span class="bag"><i class="fa-brands fa-shopify"></i></span> Jose Sanchez</div>
+      <div class="preloader__bar"><span id="preloaderBar"></span></div>
+      <div class="preloader__meta"><span data-i18n="pre.loading">Preparando la tienda</span><span id="preloaderCount">0%</span></div>
     </div>
+  </div>
 
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"><span class="cursor-ring__label"></span></div>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
 
-    <!-- page wrap
-    ================================================== -->
-    <div id="page" class="s-pagewrap">
+  <!-- Nav -->
+  <header class="nav" id="nav">
+    <a href="#top" class="brand" aria-label="Jose Sanchez">
+      <span class="bag"><i class="fa-brands fa-shopify"></i></span>
+      <span class="brand__text">Jose Sanchez<small data-i18n="nav.role">Shopify Developer</small></span>
+    </a>
+    <nav class="nav__links" id="navLinks">
+      <a href="#services" data-i18n="nav.services">Servicios</a>
+      <a href="#cro">CRO</a>
+      <a href="#work" data-i18n="nav.work">Proyectos</a>
+      <a href="#stores" data-i18n="nav.stores">Tiendas</a>
+      <a href="#experience" data-i18n="nav.exp">Experiencia</a>
+      <a href="#about" data-i18n="nav.about">Sobre mí</a>
+    </nav>
+    <div class="nav__actions">
+      <div class="lang" role="group" aria-label="Idioma / Language">
+        <button type="button" data-lang="es" class="is-active">ES</button>
+        <button type="button" data-lang="en">EN</button>
+        <span class="lang__pill" aria-hidden="true"></span>
+      </div>
+      <a href="#contact" class="btn btn--sm btn--light" data-magnetic><span data-i18n="nav.cta">Hablemos</span></a>
+      <button class="nav__burger" id="burger" aria-label="Menú" aria-expanded="false"><span></span><span></span></button>
+    </div>
+  </header>
 
+  <div class="menu" id="menu" aria-hidden="true">
+    <nav class="menu__links">
+      <a href="#services"><small>01</small><span data-i18n="nav.services">Servicios</span></a>
+      <a href="#work"><small>02</small><span data-i18n="nav.work">Proyectos</span></a>
+      <a href="#stores"><small>03</small><span data-i18n="nav.stores">Tiendas</span></a>
+      <a href="#experience"><small>04</small><span data-i18n="nav.exp">Experiencia</span></a>
+      <a href="#about"><small>05</small><span data-i18n="nav.about">Sobre mí</span></a>
+      <a href="#contact"><small>06</small><span data-i18n="nav.contact">Contacto</span></a>
+    </nav>
+    <div class="menu__foot">
+      <a href="mailto:devjoseasanchez@gmail.com">devjoseasanchez@gmail.com</a>
+      <a href="https://wa.link/3gragn" target="_blank" rel="noopener">+58 424 747 5773</a>
+      <div class="menu__cv"><a href="images/cv/CV-Jose-Sanchez-ES.pdf" download class="cv-pill"><i class="fa-solid fa-arrow-down"></i> CV ES</a><a href="images/cv/CV-Jose-Sanchez-EN.pdf" download class="cv-pill"><i class="fa-solid fa-arrow-down"></i> CV EN</a></div>
+    </div>
+  </div>
 
-        <!-- # site header 
-        ================================================== -->
-        <header class="s-header">
-            <div class="row s-header__inner">
+  <main id="top">
 
-                <div class="s-header__block">
-                    <div class="s-header__logo">
-                        <a class="logo" href="index.html">
-                            <img src="images/developericon.jpg" alt="Homepage">
-                        </a>
-                    </div>
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="hero">
+      <div class="hero__bg" aria-hidden="true"><div class="hero__dots"></div><div class="hero__spot"></div></div>
 
-                    <a class="s-header__menu-toggle" href="#0"><span data-i18n="menu">Menu</span></a>
-                </div> <!-- end s-header__block -->
+      <div class="container hero__inner">
+        <div class="hero__copy">
+          <div class="status" data-reveal>
+            <span class="status__dot"></span>
+            <span data-i18n="hero.status">Disponible para nuevos proyectos</span>
+          </div>
 
-                <nav class="s-header__nav">    
-                    <ul class="s-header__menu-links">
-                        <li class="current"><a class="smoothscroll" href="#intro" data-i18n="nav_intro">Intro</a></li>
-                        <li><a class="smoothscroll" href="#about" data-i18n="nav_about">About</a></li>
-                        <li><a class="smoothscroll" href="#works" data-i18n="nav_works">Works</a></li>
-                        <li><a class="smoothscroll" href="#footer" data-i18n="nav_contact">Contact</a></li>
-                        <div class="lang-toggle" aria-hidden="false">
-                        <button id="btn-es" class="btn-lang" type="button" title="Español" aria-label="Cambiar a español">ES</button>
-                        <button id="btn-en" class="btn-lang" type="button" title="English" aria-label="Switch to English">EN</button>
-                    </div>
-                    </ul> <!-- s-header__menu-links -->    
+          <h1 class="hero__title">
+            <span class="line"><span data-i18n="hero.l1">Tiendas Shopify</span></span>
+            <span class="line"><span><span data-i18n="hero.l2">que</span> <span class="rotator" id="rotator"><em class="rotator__word">venden.</em></span></span></span>
+          </h1>
 
-                    <!-- Language toggle (moved into nav for proper placement) -->
-                    
-                </nav> <!-- end s-header__nav -->
+          <p class="hero__sub" data-reveal data-i18n="hero.sub">Soy <strong>Jose Sanchez</strong>, desarrollador Shopify &amp; Front-end. Construyo temas a medida en Liquid, landing pages CRO e integraciones que convierten visitas en ventas, en <strong>más de 20 tiendas</strong> y contando.</p>
 
-            </div> <!-- end s-header__inner -->
-        </header> <!-- end s-header -->
+          <div class="hero__ctas" data-reveal>
+            <a href="#work" class="btn btn--primary" data-magnetic>
+              <span data-i18n="hero.cta1">Ver proyectos</span>
+              <i class="fa-solid fa-arrow-down"></i>
+            </a>
+            <a href="https://wa.link/3gragn" target="_blank" rel="noopener" class="btn btn--ghost" data-magnetic>
+              <i class="fa-brands fa-whatsapp"></i>
+              <span data-i18n="hero.cta2">Hablemos por WhatsApp</span>
+            </a>
+          </div>
 
+          <div class="hero__cv" data-reveal>
+            <i class="fa-regular fa-file-lines"></i>
+            <span data-i18n="contact.cv">Descargar CV</span>
+            <a href="images/cv/CV-Jose-Sanchez-ES.pdf" download="CV-Jose-Sanchez-ES.pdf" class="cv-pill"><i class="fa-solid fa-arrow-down"></i> ES</a>
+            <a href="images/cv/CV-Jose-Sanchez-EN.pdf" download="CV-Jose-Sanchez-EN.pdf" class="cv-pill"><i class="fa-solid fa-arrow-down"></i> EN</a>
+          </div>
 
-        <!-- # intro
-        ================================================== -->
-        <section id="intro" class="s-intro target-section">
+          <ul class="hero__trust" data-reveal>
+            <li><i class="fa-brands fa-shopify"></i><div><strong>20+</strong><span data-i18n="hero.t1">tiendas Shopify</span></div></li>
+            <li><i class="fa-solid fa-layer-group"></i><div><strong>OS 2.0</strong><span data-i18n="hero.t2">migraciones</span></div></li>
+            <li><i class="fa-solid fa-chart-line"></i><div><strong>CRO</strong><span data-i18n="hero.t3">landings que venden</span></div></li>
+            <li><i class="fa-solid fa-gem"></i><div><strong>Ruby</strong><span data-i18n="hero.t4">apps de Shopify</span></div></li>
+          </ul>
+        </div>
 
-            <div class="row s-intro__content width-sixteen-col">
-                <div class="column lg-12 s-intro__content-inner grid-block grid-16">
-                    
-                    <div class="s-intro__content-text">
-
-                        <div id="intro-pretitle" class="s-intro__content-pretitle text-pretitle" data-i18n="pretitle"><!--Rellena JSON--></div>
-                        <h1 id="intro-title" class="s-intro__content-title" data-i18n="intro_title">
-                        <!--Rellena JSON-->
-                        </h1>                            
-
-                        
-
-                        <div class="s-intro__content-btns">
-                            <a id="btn-more-about" class="smoothscroll btn" href="#about" data-i18n="btn_more_about"><!--Rellena JSON--></a>
-                            <a  class="btn btn--stroke" href="https://wa.link/3gragn" target="_blank" rel="noopener noreferrer" data-i18n="btn_get_in_touch"><!--Rellena JSON--></a>
-                        </div> <!-- s-intro__content-btns -->   
-
-                    </div> <!-- s-intro__content-text -->                     
-                    
-                </div> <!-- s-intro__content-inner -->  
-            </div> <!-- s-intro__content -->
-
-            <ul class="s-intro__social social-list">
-                <li>
-                    <a href="https://www.linkedin.com/in/jose-sanchez-59289b383/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin" aria-hidden="true"></i>
-                        <span class="u-screen-reader-text" data-i18n="social_linkedin">LinkedIn</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="https://wa.link/3gragn" target="_blank" aria-label="WhatsApp">
-                        <i class="fab fa-whatsapp" aria-hidden="true"></i>
-                        <span class="u-screen-reader-text" data-i18n="social_whatsapp">WhatsApp</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="https://www.instagram.com/joseasj_/" target="_blank" aria-label="Instagram">
-                        <i class="fab fa-instagram" aria-hidden="true"></i>
-                        <span class="u-screen-reader-text" data-i18n="social_instagram">Instagram</span>
-                    </a>
-                </li>
-                 <li>
-                    <a href="https://t.me/joseasjj" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
-                        <i class="fab fa-telegram" aria-hidden="true"></i>
-                        <span class="u-screen-reader-text" data-i18n="social_telegram">Telegram</span>
-                    </a>
-                </li>
-            </ul> <!-- end s-intro__social -->
-
-            <div class="s-intro__content-media">                               
-                <img src="images/perfil.jpg" alt="Imagen Perfil">
-            </div> <!-- s-intro__content-media -->                
-
-                <div class="s-intro__btn-download">
-                <a class="btn btn--stroke" href="images/cvjosea.pdf" target="_blank" data-i18n="get_my_cv"><!--Rellena JSON--></a>
-            </div> <!-- end s-intro__btn-download -->
-            
-            <div class="s-intro__scroll-down">
-                <a href="#about" class="smoothscroll">
-                    <div class="scroll-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M11.178 19.569a.998.998 0 0 0 1.644 0l9-13A.999.999 0 0 0 21 5H3a1.002 1.002 0 0 0-.822 1.569l9 13z"></path></svg>
-                    </div>
-                    <span class="scroll-text u-screen-reader-text" data-i18n="scroll_down">Scroll Down</span>
-                </a>
-            </div> <!-- s-intro__scroll-down -->
-
-        </section> <!-- end s-intro -->
-
-
-        <!-- # about
-        ================================================== -->
-        <section id="about" class="s-about target-section">
-
-            <div class="row s-about__content">
-                <div class="column xl-12">    
-                    
-                    <div class="section-header" data-num="01">
-                        <h2 id="about-title" class="text-display-title" data-i18n="about_title">About Me.</h2>
-                    </div> <!-- end section-header -->
-
-                    <p id="about-p1" data-i18n="about_p1" class="attention-getter">
-                    </p>
-
-                    <p id="about-p2" class="attention-getter" data-i18n="about_p2">
-                    </p>
-
-                
-                        <div class="grid-list-items__item s-about__block s-about__skills">
-                            <h4 class="s-about__block-title" data-i18n="skills_title">Skills</h4>
-
-                            <div class="skills-grid" aria-hidden="false">
-                                <div class="skill-card">
-                                    <div class="skill-icon skill-icon--html" aria-hidden="true"><i class="fab fa-html5" aria-hidden="true"></i></div>
-                                    <div class="skill-name" data-i18n="skill_html">HTML</div>
-                                </div>
-
-                                <div class="skill-card">
-                                    <div class="skill-icon skill-icon--css" aria-hidden="true"><i class="fab fa-css3-alt" aria-hidden="true"></i></div>
-                                    <div class="skill-name" data-i18n="skill_css">CSS</div>
-                                </div>
-
-                                <div class="skill-card">
-                                    <div class="skill-icon skill-icon--tailwind" aria-hidden="true">
-                                        <img src="images/icons/tailwind-css.svg" alt="Tailwind CSS" />
-                                    </div>
-                                    <div class="skill-name" data-i18n="skill_tailwind">TailwindCSS</div>
-                                </div>
-
-                                <div class="skill-card">
-                                    <div class="skill-icon skill-icon--js" aria-hidden="true"><i class="fab fa-js" aria-hidden="true"></i></div>
-                                    <div class="skill-name" data-i18n="skill_js">JavaScript</div>
-                                </div>
-
-                                <div class="skill-card">
-                                    <div class="skill-icon skill-icon--typescript" aria-hidden="true">
-                                        <img src="images/icons/typescipt.png" alt="TypeScript" />
-                                    </div>
-                                    <div class="skill-name" data-i18n="skill_typescript">TypeScript</div>
-                                </div>
-
-                                <div class="skill-card">
-                                    <div class="skill-icon skill-icon--git" aria-hidden="true"><i class="fab fa-git-alt" aria-hidden="true"></i></div>
-                                    <div class="skill-name" data-i18n="skill_git">Git / GitHub</div>
-                                </div>
-
-                                <div class="skill-card">
-                                    <div class="skill-icon skill-icon--react" aria-hidden="true"><i class="fab fa-react" aria-hidden="true"></i></div>
-                                    <div class="skill-name" data-i18n="skill_react">React</div>
-                                </div>
-
-                                <div class="skill-card">
-                                    <div class="skill-icon skill-icon--node" aria-hidden="true"><i class="fab fa-node-js" aria-hidden="true"></i></div>
-                                    <div class="skill-name" data-i18n="skill_node">NodeJS</div>
-                                </div>
-
-                                <div class="skill-card">
-                                    <div class="skill-icon skill-icon--sql" aria-hidden="true"><i class="fas fa-database" aria-hidden="true"></i></div>
-                                    <div class="skill-name" data-i18n="skill_sql">SQL / MySQL</div>
-                                </div>
-
-                                <div class="skill-card">
-                                    <div class="skill-icon skill-icon--shopify" aria-hidden="true"><i class="fab fa-shopify" aria-hidden="true"></i></div>
-                                    <div class="skill-name" data-i18n="skill_shopify">Shopify Liquid</div>
-                                </div>
-
-                            </div>
-                        </div> <!--end s-about__block -->
-
-                    </div> <!-- grid-list-items -->
-
-                </div> <!--end column -->
-            </div> <!--end s-about__content -->
-            
-        </section> <!-- end s-about -->   
-
-
-
-        <!-- # works
-        ================================================== -->
-        <section id="works" class="s-works target-section">
-
-            <div class="row">
-                <div class="column xl-12">
-                    <div class="section-header" data-num="02">
-                        <h2 class="text-display-title" data-i18n="selected_works">Selected Works.</h2>
-                    </div> <!-- end section-header -->
-                </div>
+        <div class="hero__visual" data-reveal>
+          <div class="portrait" data-tilt>
+            <div class="portrait__frame">
+              <img src="images/jose-sanchez.webp" alt="Jose Sanchez, desarrollador Shopify" width="720" height="960">
+              <div class="portrait__caption mono"><span><i class="fa-solid fa-location-dot"></i> Táchira, VE</span><span data-i18n="hero.loc">Remoto · Worldwide</span></div>
             </div>
 
-            <div class="row folio-entries">
-
-                <div class="column entry">
-                    <a href="images/folio/1.jpg" class="entry__link glightbox" data-glightbox="description: .entry__desc-01">
-                        <div class="entry__thumb">
-                            <img src="images/folio/1.jpg"  alt="Proyects">
-                        </div>
-                        <div class="entry__info">
-                            <h4 class="entry__title" data-i18n="title1"></h4>
-                        
-                        </div>
-                    </a>
-
-                    <div class="glightbox-desc entry__desc-01" >
-                        <p data-i18n="description1">
-                       
-                      
-                        </p>
-                    </div>
-                </div> <!-- entry -->
-
-                <div class="column entry">
-                    <a href="images/folio/2.jpg" class="entry__link glightbox" data-glightbox="description: .entry__desc-02">
-                        <div class="entry__thumb">
-                            <img src="images/folio/2.jpg"  alt="Proyects">
-                        </div>
-                        <div class="entry__info">
-                            <h4 class="entry__title" data-i18n="title2"> </h4>
-                            
-                        </div>
-                    </a>
-
-                    <div class="glightbox-desc entry__desc-02">
-                        <p data-i18n="description2">
-                        
-                     
-                        </p>
-                    </div>
-                </div> <!-- entry -->
-
-                <div class="column entry">
-                    <a href="images/folio/3.jpg" class="entry__link glightbox" data-glightbox="description: .entry__desc-03">
-                        <div class="entry__thumb">
-                            <img src="images/folio/3.jpg" alt="Proyects">
-                        </div>
-                        <div class="entry__info">
-                            <h4 class="entry__title" data-i18n="title3"> </h4>
-                            
-                        </div>
-                    </a>
-
-                    <div class="glightbox-desc entry__desc-03">
-                        <p data-i18n="description3">
-                     
-                       
-                        </p>
-                    </div>
-                </div> <!-- entry -->
-
-                <div class="column entry">
-                    <a href="images/folio/4.jpg" class="entry__link glightbox" data-glightbox="description: .entry__desc-04">
-                        <div class="entry__thumb">
-                            <img src="images/folio/4.jpg"  alt="Proyects">
-                        </div>
-                        <div class="entry__info">
-                            <h4 class="entry__title" data-i18n="title4"> </h4>
-                            
-                        </div>
-                    </a>
-
-                    <div class="glightbox-desc entry__desc-04">
-                        <p data-i18n="description4">
-                        
-                      
-                        </p>
-                    </div>
-                </div> <!-- entry -->
-
-                <div class="column entry">
-                    <a href="images/folio/5.jpg" class="entry__link glightbox" data-glightbox="description: .entry__desc-05">
-                        <div class="entry__thumb">
-                            <img src="images/folio/5.jpg" alt="Proyects">
-                        </div>
-                        <div class="entry__info">
-                            <h4 class="entry__title" data-i18n="title5"> </h4>
-                            
-                        </div>
-                    </a>
-
-                    <div class="glightbox-desc entry__desc-05">
-                        <p data-i18n="description5">
-                       
-                        
-                        </p>
-                    </div>
-                </div> <!-- entry -->
-
-                <div class="column entry">
-                    <a href="images/folio/6.jpg" class="entry__link glightbox" data-glightbox="description: .entry__desc-06">
-                        <div class="entry__thumb">
-                            <img src="images/folio/6.jpg" alt="Proyects">
-                        </div>
-                        <div class="entry__info">
-                            <h4 class="entry__title" data-i18n="title6"> </h4>
-                            
-                        </div>
-                    </a>
-
-                    <div class="glightbox-desc entry__desc-06">
-                        <p data-i18n="description6">
-                     
-
-                        </p>
-                    </div>
-                </div> <!-- entry --> 
-
-            </div> <!-- folio entries -->
-
-
-            <div class="row s-testimonials">
-                <div class="column xl-12">
-
-                    <h3 class="s-testimonials__header" data-i18n="hear_testimonials"> </h3>
-    
-                    <div class="swiper-container s-testimonials__slider">
-    
-                        <div class="swiper-wrapper">
-
-                            <div class="s-testimonials__slide swiper-slide">
-                                <div class="s-testimonials__author">
-                                    <img src="images/avatars/perfil.webp" alt="Author image" class="s-testimonials__avatar">
-                                    <cite class="s-testimonials__cite">
-                                        <strong data-i18n="testimonial_1_name">Marta López</strong>
-                                        <span data-i18n="testimonial_1_role">Product Manager, Lumen Retail</span>
-                                    </cite>
-                                </div>
-                                <p data-i18n="testimonial_1_text">
-                                Jose delivered a clean, responsive front-end for our e-commerce site. He used Tailwind and React components to speed up development, and his Shopify Liquid work noticeably improved our checkout flow. Highly recommended for front-end implementations.
-                                </p>
-                            </div> <!-- end s-testimonials__slide -->
-            
-                            <div class="s-testimonials__slide swiper-slide">
-                                <div class="s-testimonials__author">
-                                    <img src="images/avatars/perfil.webp" alt="Author image" class="s-testimonials__avatar">
-                                    <cite class="s-testimonials__cite">
-                                        <strong data-i18n="testimonial_2_name">Samuel Turner</strong>
-                                        <span data-i18n="testimonial_2_role">Lead Engineer, BrightWorks</span>
-                                    </cite>
-                                </div>
-                                <p data-i18n="testimonial_2_text">
-                                As a junior developer Jose showed rapid learning and great attention to accessibility and performance. He collaborated well with senior engineers and delivered stable, testable components on schedule.
-                                </p>
-                            </div> <!-- end s-testimonials__slide -->
-            
-                            <div class="s-testimonials__slide swiper-slide">
-                                <div class="s-testimonials__author">
-                                    <img src="images/avatars/perfil.webp" alt="Author image" class="s-testimonials__avatar">
-                                    <cite class="s-testimonials__cite">
-                                        <strong data-i18n="testimonial_3_name">Lucía Fernández</strong>
-                                        <span data-i18n="testimonial_3_role">CTO, Verde Studio</span>
-                                    </cite>
-                                </div>
-                                <p data-i18n="testimonial_3_text">
-                                His knowledge of SQL and Git helped us stabilize data flows and speed up deployments. Jose is proactive, documents his work, and applies feedback quickly.
-                                </p>
-                            </div> <!-- end s-testimonials__slide -->
-    
-                            <div class="s-testimonials__slide swiper-slide">
-                                <div class="s-testimonials__author">
-                                    <img src="images/avatars/perfil.webp" alt="Author image" class="s-testimonials__avatar">
-                                    <cite class="s-testimonials__cite">
-                                        <strong data-i18n="testimonial_4_name">Daniel Kim</strong>
-                                        <span data-i18n="testimonial_4_role">Founder, PixelForge</span>
-                                    </cite>
-                                </div>
-                                <p data-i18n="testimonial_4_text">
-                                Fast turnaround, clear communication, and clean code. Jose integrates feedback and iterates quickly — great to work with on medium-sized projects.
-                                </p>
-                            </div> <!-- end s-testimonials__slide -->
-        
-                        </div> <!-- end swiper-wrapper -->
-    
-                        <div class="swiper-pagination"></div>
-    
-                    </div> <!-- end swiper-container -->
-    
-                </div> <!-- end column -->
-            </div> <!-- end s-testimonials -->
-
-        </section> <!-- end s-works --> 
-
-
-        <!-- # numbers
-        ================================================== -->
-        <section id="numbers" class="s-numbers">
-
-            <div class="row counter-items">
-
-                <div class="column counter-items__item">
-                    <div class="num">
-                        4
-                        <span>+</span>
-                    </div>
-                    <h5 data-i18n="happy_customers">Happy Customers</h5>
-                    <p data-i18n="numbers_happy_customers_text">Worked with 12+ small businesses and startups, helping implement front-end improvements and launch simple marketing pages.</p>
-                </div> <!-- end counter-items__item -->
-
-                <div class="column counter-items__item">
-                    <div class="num">
-                        14
-                        <span>+</span>
-                    </div>
-                    <h5 data-i18n="projects_completed">Projects Completed</h5>
-                    <p data-i18n="numbers_projects_completed_text">18+ small projects: landing pages, feature components and simple Shopify tweaks — focused on clarity, responsiveness and accessibility.</p>
-                </div> <!-- end counter-items__item -->
-
-                <div class="column counter-items__item">
-                    <div class="num">
-                        8k
-                        <span>+</span>
-                    </div>
-                    <h5 data-i18n="lines_of_code">Lines of Code</h5>
-                    <p data-i18n="numbers_lines_of_code_text">8k+ lines of project code (HTML/CSS/JS), mostly modular components and utility classes, maintained in Git repositories.</p>
-                </div> <!-- end counter-items__item -->
-
-                <div class="column counter-items__item">
-                    <div class="num">
-                        12
-                        <span>+</span>
-                    </div>
-                    <h5 data-i18n="positive_feedback">Positive Feedback</h5>
-                    <p data-i18n="numbers_positive_feedback_text">30+ positive notes from clients and mentors praising punctuality, clarity of communication and eagerness to learn.</p>
-                </div> <!-- end counter-items__item -->
-
-            </div>  <!-- end counter-items -->
-
-        </section> <!-- end s-numbers -->
-
-
-        <!-- # footer 
-        ================================================== -->
-        <footer id="footer" class="s-footer target-section">
-
-            <div class="row">
-                <div class="column lg-12">
-                    <div class="section-header light-on-dark" data-num="03">
-                        <h2 class="text-display-title" data-i18n="footer_title">Get In Touch.</h2>
-                    </div> <!-- end section-header -->
-                </div>
+            <div class="notif notif--order">
+              <span class="notif__icon"><i class="fa-solid fa-bag-shopping"></i></span>
+              <div><strong data-i18n="hero.n1">Nuevo pedido</strong><small>#1042 · <span data-i18n="hero.n1b">hace 2 min</span></small></div>
+            </div>
+            <div class="notif notif--theme">
+              <span class="notif__icon notif__icon--sand"><i class="fa-solid fa-paintbrush"></i></span>
+              <div><strong data-i18n="hero.n2">Tema publicado</strong><small>Online Store 2.0</small></div>
             </div>
 
-            <div class="row s-footer__content">
+            <div class="code-card" aria-hidden="true">
+              <div class="code-card__bar"><i class="fa-brands fa-shopify"></i><span>sections/hero-cro.liquid</span></div>
+              <pre class="code-card__body"><code id="typedCode"></code><span class="caret"></span></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-                <div class="column xl-6 md-12 s-footer__block s-footer__about">                    
-                    <p class="attention-getter" data-i18n="pfooter">
-                   
-                    </p>               
-                </div> <!-- end section-footer__about -->
+    <!-- ============ MARQUEE ============ -->
+    <section class="marquee" aria-label="Tecnologías">
+      <div class="marquee__track">
+        <span>Shopify</span><i class="fa-brands fa-shopify"></i><span>Liquid</span><i class="fa-brands fa-shopify"></i><span>Online Store 2.0</span><i class="fa-brands fa-shopify"></i><span>Metaobjects</span><i class="fa-brands fa-shopify"></i><span>Metafields</span><i class="fa-brands fa-shopify"></i><span>CRO</span><i class="fa-brands fa-shopify"></i><span>Ruby on Rails</span><i class="fa-brands fa-shopify"></i><span>Shopify Apps</span><i class="fa-brands fa-shopify"></i><span>JavaScript</span><i class="fa-brands fa-shopify"></i><span>Pago Móvil</span><i class="fa-brands fa-shopify"></i>
+        <span>Shopify</span><i class="fa-brands fa-shopify"></i><span>Liquid</span><i class="fa-brands fa-shopify"></i><span>Online Store 2.0</span><i class="fa-brands fa-shopify"></i><span>Metaobjects</span><i class="fa-brands fa-shopify"></i><span>Metafields</span><i class="fa-brands fa-shopify"></i><span>CRO</span><i class="fa-brands fa-shopify"></i><span>Ruby on Rails</span><i class="fa-brands fa-shopify"></i><span>Shopify Apps</span><i class="fa-brands fa-shopify"></i><span>JavaScript</span><i class="fa-brands fa-shopify"></i><span>Pago Móvil</span><i class="fa-brands fa-shopify"></i>
+      </div>
+    </section>
 
-                <div class="column xl-6 md-12 s-footer__block s-footer__site-links">
-                    <div class="row">
-                        <div class="column xl-4 lg-5 md-6 tab-12">
-                            <h5 data-i18n="follow_me">Follow Me</h5>
-                            <ul class="link-list">
-                                <li><a href="#0">Instagram</a></li>
-                                <li><a href="https://wa.link/3gragn" target="_blank">WhatsApp</a></li>
-                                <li><a href="https://www.instagram.com/joseasj_/" target="_blank">Instagram</a></li>
-                                <li><a href="https://t.me/joseasjj" target="_blank">Telegram</a></li>
-                                
-                            </ul>
-                        </div>
-                        <div class="column xl-6 md-6 tab-12">
-                            <h5 data-i18n="contact_me">Contact Me</h5>
-                            <ul class="link-list">
-                                <li><a href="mailto:#0">devjoseasanchez@gmail.com</a></li>
-                                <li><a href="tel:+1975432345">+58 424 7475773</a></li>
-                            </ul> 
-                        </div>
-                    </div>                    
-                </div> <!-- end section-footer__site-links -->
+    <!-- ============ STATS ============ -->
+    <section class="stats container">
+      <div class="stat" data-reveal>
+        <i class="fa-solid fa-store"></i>
+        <div class="stat__num"><span data-count="20">0</span><em>+</em></div>
+        <p data-i18n="stat.1">Tiendas Shopify en las que he trabajado</p>
+      </div>
+      <div class="stat" data-reveal>
+        <i class="fa-regular fa-calendar"></i>
+        <div class="stat__num"><span data-count="2">0</span><em>+</em></div>
+        <p data-i18n="stat.2">Años construyendo e-commerce</p>
+      </div>
+      <div class="stat" data-reveal>
+        <i class="fa-solid fa-earth-americas"></i>
+        <div class="stat__num"><span data-count="100">0</span><em>%</em></div>
+        <p data-i18n="stat.3">Remoto, en cualquier zona horaria</p>
+      </div>
+      <div class="stat" data-reveal>
+        <i class="fa-solid fa-route"></i>
+        <div class="stat__num"><span>360°</span></div>
+        <p data-i18n="stat.4">Implementaciones de principio a fin</p>
+      </div>
+    </section>
 
-            </div> <!-- end section-footer__content -->
+    <!-- ============ SERVICES ============ -->
+    <section class="section" id="services">
+      <div class="container">
+        <header class="section__head section__head--split">
+          <div>
+            <span class="label"><span class="label__num">01</span> <span data-i18n="svc.label">Servicios</span></span>
+            <h2 class="section__title" data-reveal data-i18n="svc.title">Todo lo que tu tienda necesita para <em>vender más</em>.</h2>
+          </div>
+          <p class="section__lead" data-reveal data-i18n="svc.lead">Desde el tema hasta la última integración: me encargo de la parte técnica para que tú te enfoques en vender.</p>
+        </header>
 
+        <div class="bento">
+          <article class="card card--xl" data-reveal data-spotlight>
+            <div class="card__icon"><i class="fa-brands fa-shopify"></i></div>
+            <h3 data-i18n="svc.1.t">Desarrollo Liquid avanzado</h3>
+            <p data-i18n="svc.1.d">Secciones y bloques a medida, temas modulares y fáciles de editar para el comerciante. Código limpio que tu equipo puede mantener.</p>
+            <div class="card__editor" aria-hidden="true">
+              <div class="editor__side">
+                <span class="editor__item is-on"><i class="fa-solid fa-table-columns"></i> Hero CRO</span>
+                <span class="editor__item"><i class="fa-solid fa-star"></i> <span data-i18n="svc.1.e2">Reseñas</span></span>
+                <span class="editor__item"><i class="fa-solid fa-grip"></i> <span data-i18n="svc.1.e3">Productos</span></span>
+                <span class="editor__item editor__item--add"><i class="fa-solid fa-plus"></i> <span data-i18n="svc.1.e4">Agregar sección</span></span>
+              </div>
+              <div class="editor__canvas">
+                <span class="sk sk--title"></span><span class="sk"></span><span class="sk sk--short"></span>
+                <span class="sk sk--btn"></span>
+              </div>
+            </div>
+          </article>
 
-            <div class="row s-footer__buttons">
-               
-                <div class="column xl-6 tab-12">
-                    <a href="https://wa.link/3gragn" target="_blank" class="btn btn--primary btn--large u-fullwidth" data-i18n="message_me">Message Me</a>
+          <article class="card" data-reveal data-spotlight>
+            <div class="card__icon"><i class="fa-solid fa-bullseye"></i></div>
+            <h3 data-i18n="svc.2.t">Landing pages CRO</h3>
+            <p data-i18n="svc.2.d">Páginas de producto y landings diseñadas para convertir: estructura, velocidad y persuasión.</p>
+            <div class="card__meter" aria-hidden="true"><span></span></div>
+          </article>
+
+          <article class="card" data-reveal data-spotlight>
+            <div class="card__icon"><i class="fa-solid fa-arrows-rotate"></i></div>
+            <h3 data-i18n="svc.3.t">Migraciones sin pérdidas</h3>
+            <p data-i18n="svc.3.d">De temas legacy a Online Store 2.0 y migraciones de suscripciones, cuidando cada dato y cada cliente.</p>
+          </article>
+
+          <article class="card" data-reveal data-spotlight>
+            <div class="card__icon"><i class="fa-solid fa-layer-group"></i></div>
+            <h3>Metaobjects &amp; Metafields</h3>
+            <p data-i18n="svc.4.d">Contenido dinámico y datos de producto complejos que tu equipo gestiona sin tocar código.</p>
+          </article>
+
+          <article class="card" data-reveal data-spotlight>
+            <div class="card__icon"><i class="fa-solid fa-tags"></i></div>
+            <h3 data-i18n="svc.6.t">Descuentos &amp; rendimiento</h3>
+            <p data-i18n="svc.6.d">Lógica de descuentos compleja, configuración de Shopify Admin y tiendas rápidas y responsivas.</p>
+          </article>
+
+          <article class="card card--wide" data-reveal data-spotlight>
+            <div class="card--wide__text">
+              <div class="card__icon"><i class="fa-solid fa-plug"></i></div>
+              <h3 data-i18n="svc.5.t">Integraciones &amp; CRM</h3>
+              <p data-i18n="svc.5.d">Conecto Shopify con canales de venta, apps de delivery, CRM, GoHighLevel y Lovable. Pedidos que fluyen solos, sin carga manual.</p>
+            </div>
+            <div class="card__pipe" aria-hidden="true">
+              <span><i class="fa-brands fa-shopify"></i> Shopify</span><b></b>
+              <span><i class="fa-solid fa-motorcycle"></i> App</span><b></b>
+              <span><i class="fa-solid fa-address-book"></i> CRM</span>
+            </div>
+          </article>
+
+          <article class="card" data-reveal data-spotlight>
+            <div class="card__icon"><i class="fa-solid fa-credit-card"></i></div>
+            <h3 data-i18n="svc.7.t">Apps &amp; pasarelas de pago</h3>
+            <p data-i18n="svc.7.d">Apps de Shopify en Ruby on Rails y checkouts con pagos locales de Venezuela: Cashea, Pago Móvil y débito inmediato.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CRO ============ -->
+    <section class="section section--cro" id="cro">
+      <div class="container cro">
+        <div class="cro__copy">
+          <span class="label"><span class="label__num">CRO</span> <span data-i18n="cro.label">Optimización de conversión</span></span>
+          <h2 class="section__title" data-reveal data-i18n="cro.title">Diseños que <em>suben</em> las ventas.</h2>
+          <p class="cro__lead" data-reveal data-i18n="cro.lead">Me especializo en CRO: he creado landings que han generado muchas ventas y he optimizado tiendas existentes para que conviertan más. No hago páginas bonitas por hacerlas: cada decisión empuja al cliente hacia la compra.</p>
+          <ul class="cro__list">
+            <li data-reveal><i class="fa-solid fa-rocket"></i><div><strong data-i18n="cro.1.t">Landings especializadas en CRO</strong><span data-i18n="cro.1.d">Lanzamientos, campañas y productos estrella con estructura pensada para vender.</span></div></li>
+            <li data-reveal><i class="fa-solid fa-wand-magic-sparkles"></i><div><strong data-i18n="cro.2.t">Optimización de tiendas existentes</strong><span data-i18n="cro.2.d">Páginas de producto, colecciones, carrito y checkout mejorados sin rehacer todo desde cero.</span></div></li>
+            <li data-reveal><i class="fa-solid fa-chart-line"></i><div><strong data-i18n="cro.3.t">Diseños que mueven la conversión</strong><span data-i18n="cro.3.d">Jerarquía visual, prueba social, urgencia y ofertas claras donde más importan.</span></div></li>
+            <li data-reveal><i class="fa-solid fa-gauge-high"></i><div><strong data-i18n="cro.4.t">Velocidad que vende</strong><span data-i18n="cro.4.d">Tiendas rápidas y responsive: cada segundo menos de carga es menos abandono.</span></div></li>
+          </ul>
+        </div>
+
+        <div class="cro__visual" data-reveal>
+          <div class="dash" id="dash">
+            <div class="dash__head">
+              <span><i class="fa-brands fa-shopify"></i> <span data-i18n="cro.d.title">Análisis de la tienda</span></span>
+              <span class="dash__pill"><i class="fa-solid fa-arrow-trend-up"></i> <span data-i18n="cro.d.pill">Conversión en alza</span></span>
+            </div>
+            <div class="dash__chart">
+              <svg viewBox="0 0 400 160" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="area" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#4d8dff" stop-opacity=".45"/><stop offset="1" stop-color="#4d8dff" stop-opacity="0"/></linearGradient>
+                </defs>
+                <path class="dash__area" d="M0 140 C 40 135, 70 130, 100 128 S 160 120, 190 112 S 250 90, 280 70 S 340 40, 400 18 L 400 160 L 0 160 Z" fill="url(#area)"/>
+                <path class="dash__line" d="M0 140 C 40 135, 70 130, 100 128 S 160 120, 190 112 S 250 90, 280 70 S 340 40, 400 18"/>
+                <path class="dash__base" d="M0 142 C 60 140, 120 141, 190 136 S 300 132, 400 128"/>
+              </svg>
+              <div class="dash__legend mono"><span><b class="b1"></b><span data-i18n="cro.d.after">Después del rediseño</span></span><span><b class="b2"></b><span data-i18n="cro.d.before">Antes</span></span></div>
+            </div>
+            <div class="funnel">
+              <div class="funnel__row"><span data-i18n="cro.f1">Sesiones</span><div class="funnel__bar"><span style="--w:100%"></span></div></div>
+              <div class="funnel__row"><span data-i18n="cro.f2">Agregado al carrito</span><div class="funnel__bar"><span style="--w:72%"></span></div></div>
+              <div class="funnel__row"><span data-i18n="cro.f3">Checkout</span><div class="funnel__bar"><span style="--w:56%"></span></div></div>
+              <div class="funnel__row"><span data-i18n="cro.f4">Compra</span><div class="funnel__bar funnel__bar--hot"><span style="--w:44%"></span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WORK ============ -->
+    <section class="section section--work" id="work">
+      <div class="container">
+        <header class="section__head section__head--split">
+          <div>
+            <span class="label"><span class="label__num">02</span> <span data-i18n="work.label">Proyectos destacados</span></span>
+            <h2 class="section__title" data-reveal data-i18n="work.title">Proyectos que <em>mueven</em> negocios.</h2>
+          </div>
+          <p class="section__lead" data-reveal data-i18n="work.lead">Plataformas en producción, e-commerce e integraciones construidas para resolver problemas reales de negocio.</p>
+        </header>
+
+        <div class="stack" id="stack">
+
+          <article class="project" style="--i:0" data-accent="#7ee03a">
+            <div class="project__info">
+              <div class="project__top">
+                <span class="project__idx mono">01</span>
+                <span class="tag" data-i18n="p1.tag">Plataforma web · En producción</span>
+              </div>
+              <h3 class="project__title">Punto Fijo Cars Service</h3>
+              <p class="project__desc" data-i18n="p1.d">Sitio público y panel administrativo para un lubricentro. Los clientes consultan su historial por patente y ven cuándo les toca el próximo cambio de aceite, calculado automáticamente.</p>
+              <ul class="project__list">
+                <li data-i18n="p1.b1">Consulta de historial por patente</li>
+                <li data-i18n="p1.b2">Próximo cambio de aceite calculado solo</li>
+                <li data-i18n="p1.b3">Panel con códigos QR y reportes PDF</li>
+                <li data-i18n="p1.b4">Mobile-first, modo claro y oscuro</li>
+              </ul>
+              <div class="project__stack mono"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Supabase</span><span>RLS</span><span>Vercel</span></div>
+              <a href="https://www.puntofijocarservice.com" target="_blank" rel="noopener" class="link-arrow" data-cursor="Visitar">
+                <span data-i18n="p.live">Ver sitio en vivo</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+            <div class="project__visual">
+              <div class="browser" data-slides>
+                <div class="browser__bar"><i></i><i></i><i></i><span class="browser__url"><i class="fa-solid fa-lock"></i> puntofijocarservice.com</span><span class="live"><b></b>LIVE</span></div>
+                <div class="browser__screen">
+                  <img src="images/work/puntofijo-hero.webp" alt="Punto Fijo Cars Service - inicio con buscador de patente" loading="lazy" class="is-active">
+                  <img src="images/work/puntofijo-servicios.webp" alt="Punto Fijo Cars Service - servicios del taller" loading="lazy">
+                  <img src="images/work/puntofijo-intervalos.webp" alt="Punto Fijo Cars Service - intervalos y ficha del vehículo" loading="lazy">
+                  <img src="images/work/puntofijo-admin.webp" alt="Punto Fijo Cars Service - acceso al panel administrativo" loading="lazy">
                 </div>
-          
-                <div class="column xl-6 tab-12">                    
-                    <a href="images/cvjosea.pdf" target="_blank" class="btn btn--stroke btn--large u-fullwidth" data-i18n="get_my_cv">Get My CV</a>
+                <div class="browser__dots"></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project" style="--i:1" data-accent="#e5484d">
+            <div class="project__info">
+              <div class="project__top">
+                <span class="project__idx mono">02</span>
+                <span class="tag" data-i18n="p2.tag">E-commerce · HVAC</span>
+              </div>
+              <h3 class="project__title">mbtek</h3>
+              <p class="project__desc" data-i18n="p2.d">E-commerce de sistemas HVAC: bombas de calor, calderas y equipos de climatización. Construí y refiné funcionalidades front-end y landing pages dentro del stack web de la empresa.</p>
+              <ul class="project__list">
+                <li data-i18n="p2.b1">Landing pages de categorías y productos</li>
+                <li data-i18n="p2.b2">Mejoras de interfaz y nuevas funcionalidades</li>
+                <li data-i18n="p2.b3">Trabajo en equipo con entregas en plazo</li>
+              </ul>
+              <div class="project__stack mono"><span>React</span><span>Next.js</span><span>JavaScript</span><span>CSS</span></div>
+              <a href="https://mbtek.com" target="_blank" rel="noopener" class="link-arrow" data-cursor="Visitar">
+                <span data-i18n="p.live">Ver sitio en vivo</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+            <div class="project__visual">
+              <div class="browser" data-slides>
+                <div class="browser__bar"><i></i><i></i><i></i><span class="browser__url"><i class="fa-solid fa-lock"></i> mbtek.com</span><span class="live"><b></b>LIVE</span></div>
+                <div class="browser__screen">
+                  <img src="images/work/mbtek-hero.webp" alt="mbtek - inicio" loading="lazy" class="is-active">
+                  <img src="images/work/mbtek-boilers.webp" alt="mbtek - calderas de leña y pellet" loading="lazy">
+                  <img src="images/work/mbtek-heatpumps.webp" alt="mbtek - bombas de calor" loading="lazy">
                 </div>
-            
-            </div> <!-- end section-footer__buttons -->              
-            
-            <div class="row s-footer__bottom">
-                
-                <div class="column xl-6 lg-12">
-                    <ul class="s-footer__social social-list">
-                        <li>
-                            <a href="https://www.linkedin.com/in/jose-sanchez-59289b383/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                                <i class="fab fa-linkedin" aria-hidden="true"></i>
-                                <span class="u-screen-reader-text" data-i18n="social_linkedin">LinkedIn</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://wa.link/3gragn" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-                    <i class="fab fa-whatsapp" aria-hidden="true"></i>
-                        <span class="u-screen-reader-text" data-i18n="social_whatsapp">WhatsApp</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.instagram.com/joseasj_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                                <i class="fab fa-instagram" aria-hidden="true"></i>
-                                <span class="u-screen-reader-text" data-i18n="social_instagram">Instagram</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://t.me/joseasjj" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
-                                <i class="fab fa-telegram" aria-hidden="true"></i>
-                                <span class="u-screen-reader-text" data-i18n="social_telegram">Telegram</span>
-                            </a>
-                        </li>
-                    </ul> 
-                </div> <!-- end section-footer__social -->
+                <div class="browser__dots"></div>
+              </div>
+            </div>
+          </article>
 
-                <div class="column xl-6 lg-12">
-                    <p class="ss-copyright">
-                        <span data-i18n="copyright"></span> 
-                        
-                    </p>
+          <article class="project" style="--i:2" data-accent="#f5c66b">
+            <div class="project__info">
+              <div class="project__top">
+                <span class="project__idx mono">03</span>
+                <span class="tag" data-i18n="pc.tag">App de Shopify · Pagos</span>
+              </div>
+              <h3 class="project__title" data-i18n="pc.t">Checkout con pagos venezolanos</h3>
+              <p class="project__desc" data-i18n="pc.d">App de Shopify en Ruby on Rails para una tienda en Venezuela: un checkout a medida que acepta pagos locales, verifica cada transacción y crea el pedido en Shopify automáticamente.</p>
+              <ul class="project__list">
+                <li data-i18n="pc.b1">Cashea, Pago Móvil y débito inmediato (Banco Plaza)</li>
+                <li data-i18n="pc.b2">Verificación y conciliación automática de pagos</li>
+                <li data-i18n="pc.b3">Tasa de cambio, descuentos y pedidos sincronizados</li>
+                <li data-i18n="pc.b4">Envíos con oficinas de Zoom y MRW</li>
+              </ul>
+              <div class="project__stack mono"><span>Ruby on Rails</span><span>Shopify GraphQL</span><span>Webhooks</span><span>Cashea API</span><span>Render</span></div>
+            </div>
+            <div class="project__visual">
+              <div class="checkout" id="checkout" aria-hidden="true">
+                <div class="checkout__head">
+                  <span><i class="fa-solid fa-lock"></i> <span data-i18n="pc.m.title">Pago seguro</span></span>
+                  <span class="mono">Bs · USD</span>
                 </div>
+                <div class="checkout__total"><span data-i18n="pc.m.total">Total del pedido</span><strong class="mono">$128.00</strong></div>
+                <div class="checkout__methods">
+                  <div class="method is-on"><span class="method__radio"></span><i class="fa-solid fa-calendar-check"></i><div><strong>Cashea</strong><small data-i18n="pc.m.m1">Compra ahora, paga en cuotas</small></div></div>
+                  <div class="method"><span class="method__radio"></span><i class="fa-solid fa-mobile-screen-button"></i><div><strong>Pago Móvil</strong><small data-i18n="pc.m.m2">Verificación automática</small></div></div>
+                  <div class="method"><span class="method__radio"></span><i class="fa-solid fa-building-columns"></i><div><strong data-i18n="pc.m.m3t">Débito inmediato</strong><small>Banco Plaza</small></div></div>
+                </div>
+                <div class="checkout__status"><i class="fa-solid fa-circle-check"></i> <span data-i18n="pc.m.ok">Pago verificado · pedido creado en Shopify</span></div>
+              </div>
+            </div>
+          </article>
 
-            </div> <!-- end section-footer__bottom -->          
+          <article class="project" style="--i:3" data-accent="#4fd1b5">
+            <div class="project__info">
+              <div class="project__top">
+                <span class="project__idx mono">04</span>
+                <span class="tag" data-i18n="p3.tag">Integración</span>
+              </div>
+              <h3 class="project__title" data-i18n="p3.t">Shopify × Super App de Delivery × CRM</h3>
+              <p class="project__desc" data-i18n="p3.d">Conecté una tienda Shopify con una super app de delivery y un CRM para que todo el catálogo pueda pedirse dentro de la app, con los pedidos fluyendo automáticamente entre las tres plataformas.</p>
+              <ul class="project__list">
+                <li data-i18n="p3.b1">Catálogo completo disponible en la app</li>
+                <li data-i18n="p3.b2">Pedidos sincronizados automáticamente</li>
+                <li data-i18n="p3.b3">Cero carga manual de datos</li>
+              </ul>
+              <div class="project__stack mono"><span>Shopify APIs</span><span>CRM</span><span>Webhooks</span><span data-i18n="p3.s4">Automatización</span></div>
+            </div>
+            <div class="project__visual">
+              <div class="flow" aria-hidden="true">
+                <svg class="flow__svg" viewBox="0 0 600 420" preserveAspectRatio="xMidYMid meet">
+                  <path id="fp1" d="M150 120 C 260 120, 340 120, 450 120" class="flow__path"/>
+                  <path id="fp2" d="M450 140 C 450 240, 380 300, 300 300" class="flow__path"/>
+                  <path id="fp3" d="M300 300 C 220 300, 150 240, 150 140" class="flow__path"/>
+                  <circle r="5" class="flow__dot"><animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#fp1"/></animateMotion></circle>
+                  <circle r="5" class="flow__dot"><animateMotion dur="2.4s" begin=".8s" repeatCount="indefinite"><mpath href="#fp2"/></animateMotion></circle>
+                  <circle r="5" class="flow__dot"><animateMotion dur="2.4s" begin="1.6s" repeatCount="indefinite"><mpath href="#fp3"/></animateMotion></circle>
+                </svg>
+                <div class="flow__node flow__node--a"><i class="fa-brands fa-shopify"></i><span>Shopify</span></div>
+                <div class="flow__node flow__node--b"><i class="fa-solid fa-motorcycle"></i><span>Super App</span></div>
+                <div class="flow__node flow__node--c"><i class="fa-solid fa-address-book"></i><span>CRM</span></div>
+                <div class="flow__toast" id="flowToast"><i class="fa-solid fa-circle-check"></i> <span data-i18n="p3.toast">Pedido sincronizado</span> <b class="mono">#1042</b></div>
+              </div>
+            </div>
+          </article>
 
-            <div class="ss-go-top">
-                <a class="smoothscroll" title="Back to Top" href="#top">                 
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M5.536 21.886a1.004 1.004 0 0 0 1.033-.064l13-9a1 1 0 0 0 0-1.644l-13-9A1 1 0 0 0 5 3v18a1 1 0 0 0 .536.886z"></path></svg>
-                </a>                                
-                <span data-i18n="back_to_top">Back To Top</span>   
-            </div> <!-- end ss-go-top -->
-            
-        </footer> <!-- end s-footer -->
+          <article class="project" style="--i:4" data-accent="#8ab8ff">
+            <div class="project__info">
+              <div class="project__top">
+                <span class="project__idx mono">05</span>
+                <span class="tag" data-i18n="p4.tag">Migración</span>
+              </div>
+              <h3 class="project__title" data-i18n="p4.t">Migraciones de temas y suscripciones</h3>
+              <p class="project__desc" data-i18n="p4.d">Migración de tiendas desde temas legacy a Online Store 2.0 y entre plataformas de suscripción, preservando datos y registros de clientes con el mínimo tiempo de inactividad.</p>
+              <ul class="project__list">
+                <li data-i18n="p4.b1">Legacy → Online Store 2.0</li>
+                <li data-i18n="p4.b2">Suscripciones migradas sin perder clientes</li>
+                <li data-i18n="p4.b3">Mínimo tiempo de inactividad</li>
+              </ul>
+              <div class="project__stack mono"><span>Liquid</span><span>OS 2.0</span><span>Metafields</span><span>Subscriptions</span></div>
+            </div>
+            <div class="project__visual">
+              <div class="terminal" id="terminal" aria-hidden="true">
+                <div class="terminal__bar"><i></i><i></i><i></i><span>migration.log</span></div>
+                <div class="terminal__body">
+                  <div class="term-line"><span class="t-dim">$</span> shopify theme push --theme <span class="t-s">os-2.0</span></div>
+                  <div class="term-row"><span data-i18n="m.t1">Secciones y plantillas</span><div class="term-bar"><span></span></div><b>✓</b></div>
+                  <div class="term-row"><span data-i18n="m.t2">Clientes</span><div class="term-bar"><span></span></div><b>✓</b></div>
+                  <div class="term-row"><span data-i18n="m.t3">Suscripciones</span><div class="term-bar"><span></span></div><b>✓</b></div>
+                  <div class="term-row"><span>Metafields</span><div class="term-bar"><span></span></div><b>✓</b></div>
+                  <div class="term-row"><span data-i18n="m.t4">Pedidos</span><div class="term-bar"><span></span></div><b>✓</b></div>
+                  <div class="term-line term-line--ok"><span data-i18n="m.done">✔ Migración completa · integridad de datos verificada</span></div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-    </div> <!-- end page-wrap -->
+    <!-- ============ STORES ============ -->
+    <section class="section section--stores" id="stores">
+      <div class="container">
+        <header class="section__head section__head--split">
+          <div>
+            <span class="label"><span class="label__num">03</span> <span data-i18n="st.label">Tiendas Shopify</span></span>
+            <h2 class="section__title section__title--sm" data-reveal data-i18n="st.title">Tiendas en las que <em>he colaborado</em>.</h2>
+          </div>
+          <p class="section__lead" data-reveal data-i18n="st.lead">Marcas de distintos países y rubros con las que he colaborado junto a agencias y equipos de desarrollo.</p>
+        </header>
 
+        <div class="strip" data-reveal>
+          <div class="strip__track">
+            <figure class="strip__item">
+              <div class="strip__shot"><img src="images/work/shop-snacks.webp" alt="Tienda Shopify: Snacks" loading="lazy"></div>
+              <figcaption><i class="fa-brands fa-shopify"></i> <span data-i18n="st.i1">Snacks</span></figcaption>
+            </figure>
+            <figure class="strip__item">
+              <div class="strip__shot"><img src="images/work/shop-pets-pdp.webp" alt="Tienda Shopify: Página de producto · Salud para mascotas" loading="lazy"></div>
+              <figcaption><i class="fa-brands fa-shopify"></i> <span data-i18n="st.i6">Página de producto · Salud para mascotas</span></figcaption>
+            </figure>
+            <figure class="strip__item">
+              <div class="strip__shot"><img src="images/work/shop-supplements.webp" alt="Tienda Shopify: Suplementos deportivos" loading="lazy"></div>
+              <figcaption><i class="fa-brands fa-shopify"></i> <span data-i18n="st.i2">Suplementos deportivos</span></figcaption>
+            </figure>
+            <figure class="strip__item">
+              <div class="strip__shot"><img src="images/work/shop-distillery.webp" alt="Tienda Shopify: Destilería orgánica" loading="lazy"></div>
+              <figcaption><i class="fa-brands fa-shopify"></i> <span data-i18n="st.i7">Destilería orgánica</span></figcaption>
+            </figure>
+            <figure class="strip__item">
+              <div class="strip__shot"><img src="images/work/shop-athletics.webp" alt="Tienda Shopify: Equipamiento de atletismo" loading="lazy"></div>
+              <figcaption><i class="fa-brands fa-shopify"></i> <span data-i18n="st.i3">Equipamiento de atletismo</span></figcaption>
+            </figure>
+            <figure class="strip__item">
+              <div class="strip__shot"><img src="images/work/shop-wine.webp" alt="Tienda Shopify: Vinos personalizados" loading="lazy"></div>
+              <figcaption><i class="fa-brands fa-shopify"></i> <span data-i18n="st.i8">Vinos personalizados</span></figcaption>
+            </figure>
+            <figure class="strip__item">
+              <div class="strip__shot"><img src="images/work/shop-wellness.webp" alt="Tienda Shopify: Bienestar y recuperación" loading="lazy"></div>
+              <figcaption><i class="fa-brands fa-shopify"></i> <span data-i18n="st.i4">Bienestar &amp; recuperación</span></figcaption>
+            </figure>
+            <figure class="strip__item">
+              <div class="strip__shot"><img src="images/work/shop-chai.webp" alt="Tienda Shopify: Chai y té" loading="lazy"></div>
+              <figcaption><i class="fa-brands fa-shopify"></i> <span data-i18n="st.i9">Chai &amp; té</span></figcaption>
+            </figure>
+            <figure class="strip__item">
+              <div class="strip__shot"><img src="images/work/shop-books.webp" alt="Tienda Shopify: Librería infantil" loading="lazy"></div>
+              <figcaption><i class="fa-brands fa-shopify"></i> <span data-i18n="st.i5">Librería infantil</span></figcaption>
+            </figure>
+            <figure class="strip__item" aria-hidden="true">
+              <div class="strip__shot"><img src="images/work/shop-snacks.webp" alt="" loading="lazy"></div>
+              <figcaption><i class="fa-brands fa-shopify"></i> <span data-i18n="st.i1">Snacks</span></figcaption>
+            </figure>
+            <figure class="strip__item" aria-hidden="true">
+              <div class="strip__shot"><img src="images/work/shop-pets-pdp.webp" alt="" loading="lazy"></div>
+              <figcaption><i class="fa-brands fa-shopify"></i> <span data-i18n="st.i6">Página de producto · Salud para mascotas</span></figcaption>
+            </figure>
+            <figure class="strip__item" aria-hidden="true">
+              <div class="strip__shot"><img src="images/work/shop-supplements.webp" alt="" loading="lazy"></div>
+              <figcaption><i class="fa-brands fa-shopify"></i> <span data-i18n="st.i2">Suplementos deportivos</span></figcaption>
+            </figure>
+            <figure class="strip__item" aria-hidden="true">
+              <div class="strip__shot"><img src="images/work/shop-distillery.webp" alt="" loading="lazy"></div>
+              <figcaption><i class="fa-brands fa-shopify"></i> <span data-i18n="st.i7">Destilería orgánica</span></figcaption>
+            </figure>
+            <figure class="strip__item" aria-hidden="true">
+              <div class="strip__shot"><img src="images/work/shop-athletics.webp" alt="" loading="lazy"></div>
+              <figcaption><i class="fa-brands fa-shopify"></i> <span data-i18n="st.i3">Equipamiento de atletismo</span></figcaption>
+            </figure>
+            <figure class="strip__item" aria-hidden="true">
+              <div class="strip__shot"><img src="images/work/shop-wine.webp" alt="" loading="lazy"></div>
+              <figcaption><i class="fa-brands fa-shopify"></i> <span data-i18n="st.i8">Vinos personalizados</span></figcaption>
+            </figure>
+            <figure class="strip__item" aria-hidden="true">
+              <div class="strip__shot"><img src="images/work/shop-wellness.webp" alt="" loading="lazy"></div>
+              <figcaption><i class="fa-brands fa-shopify"></i> <span data-i18n="st.i4">Bienestar &amp; recuperación</span></figcaption>
+            </figure>
+            <figure class="strip__item" aria-hidden="true">
+              <div class="strip__shot"><img src="images/work/shop-chai.webp" alt="" loading="lazy"></div>
+              <figcaption><i class="fa-brands fa-shopify"></i> <span data-i18n="st.i9">Chai &amp; té</span></figcaption>
+            </figure>
+            <figure class="strip__item" aria-hidden="true">
+              <div class="strip__shot"><img src="images/work/shop-books.webp" alt="" loading="lazy"></div>
+              <figcaption><i class="fa-brands fa-shopify"></i> <span data-i18n="st.i5">Librería infantil</span></figcaption>
+            </figure>
+          </div>
+        </div>
 
-    <!-- Java Script
-    ================================================== -->
-    <script src="js/i18n.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
+        <div class="logos" data-reveal>
+          <span class="logos__label mono" data-i18n="st.also">También he trabajado en</span>
+          <ul class="logos__list">
+            <li><i class="fa-solid fa-fire-flame-curved"></i> mbtek · HVAC</li>
+            <li><i class="fa-solid fa-mountain-sun"></i> <span data-i18n="st.x1">Outdoor &amp; aventura</span></li>
+            <li><i class="fa-solid fa-shirt"></i> <span data-i18n="st.x3">Ropa interior deportiva</span></li>
+            <li><i class="fa-solid fa-store"></i> <span data-i18n="st.x5">y muchas más</span></li>
+          </ul>
+        </div>
 
+        <div class="more">
+          <h3 class="more__title" data-reveal data-i18n="more.title">Landings &amp; portales</h3>
+          <div class="gallery">
+            <figure class="shot" data-reveal data-tilt-soft data-cursor="Ver">
+              <img src="images/work/dental.webp" alt="Sitio web de clínica de odontopediatría" loading="lazy">
+              <figcaption><span class="tag" data-i18n="g.portal">Portal médico</span><strong data-i18n="g3.t">Clínica de odontopediatría</strong><small data-i18n="g3.d">UI cálida y cercana, enfocada en agendar.</small></figcaption>
+            </figure>
+            <figure class="shot" data-reveal data-tilt-soft data-cursor="Ver">
+              <img src="images/work/turrones.webp" alt="Landing de turrones artesanales" loading="lazy">
+              <figcaption><span class="tag">CRO</span><strong data-i18n="g4.t">Turrones artesanales</strong><small data-i18n="g4.d">Landing de producto con llamada a pedido.</small></figcaption>
+            </figure>
+            <figure class="shot" data-reveal data-tilt-soft data-cursor="Ver">
+              <img src="images/work/inmobiliaria.webp" alt="Landing de asesora inmobiliaria" loading="lazy">
+              <figcaption><span class="tag">CRO</span><strong data-i18n="g5.t">Asesoría inmobiliaria</strong><small data-i18n="g5.d">Captación de leads y agenda de asesorías.</small></figcaption>
+            </figure>
+            <figure class="shot" data-reveal data-tilt-soft data-cursor="Ver">
+              <img src="images/work/culinaria.webp" alt="Landing de escuela culinaria" loading="lazy">
+              <figcaption><span class="tag" data-i18n="g.edu">Portal educativo</span><strong data-i18n="g6.t">Escuela culinaria</strong><small data-i18n="g6.d">Cursos, talleres y formulario de inscripción.</small></figcaption>
+            </figure>
+            <figure class="shot" data-reveal data-tilt-soft data-cursor="Ver">
+              <img src="images/work/shopify-sneakers.webp" alt="Colección de zapatillas en Shopify" loading="lazy">
+              <figcaption><span class="tag">Shopify</span><strong data-i18n="g2.t">Colección de zapatillas</strong><small data-i18n="g2.d">Página de colección y producto a medida.</small></figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROCESS ============ -->
+    <section class="section section--process">
+      <div class="container">
+        <header class="section__head">
+          <span class="label"><span class="label__num">04</span> <span data-i18n="proc.label">Proceso</span></span>
+          <h2 class="section__title" data-reveal data-i18n="proc.title">De la idea a <em>vender</em>, en 4 pasos.</h2>
+        </header>
+        <ol class="process">
+          <li class="step" data-reveal><div class="step__head"><span class="step__num mono">01</span><i class="fa-solid fa-magnifying-glass"></i></div><h3 data-i18n="proc.1.t">Descubrimiento</h3><p data-i18n="proc.1.d">Entiendo tu negocio, tus objetivos y lo que hoy frena tus ventas.</p></li>
+          <li class="step" data-reveal><div class="step__head"><span class="step__num mono">02</span><i class="fa-solid fa-sitemap"></i></div><h3 data-i18n="proc.2.t">Estructura</h3><p data-i18n="proc.2.d">Arquitectura, datos y diseño pensados para convertir y escalar.</p></li>
+          <li class="step" data-reveal><div class="step__head"><span class="step__num mono">03</span><i class="fa-solid fa-code"></i></div><h3 data-i18n="proc.3.t">Desarrollo</h3><p data-i18n="proc.3.d">Liquid y JavaScript limpios, rápidos y fáciles de mantener.</p></li>
+          <li class="step" data-reveal><div class="step__head"><span class="step__num mono">04</span><i class="fa-solid fa-rocket"></i></div><h3 data-i18n="proc.4.t">Lanzamiento</h3><p data-i18n="proc.4.d">Publicación cuidada, pruebas entre navegadores y optimización continua.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIENCE ============ -->
+    <section class="section" id="experience">
+      <div class="container">
+        <header class="section__head">
+          <span class="label"><span class="label__num">05</span> <span data-i18n="exp.label">Experiencia</span></span>
+          <h2 class="section__title" data-reveal data-i18n="exp.title">Mi <em>recorrido</em>.</h2>
+        </header>
+
+        <div class="timeline" id="timeline">
+          <div class="timeline__line"><span id="timelineFill"></span></div>
+
+          <article class="job" data-reveal>
+            <div class="job__date mono"><span class="job__live"></span><span data-i18n="e1.date">Sep 2024 · Actualidad</span></div>
+            <div class="job__body">
+              <h3 data-i18n="e1.role">Desarrollador Shopify &amp; Front-end</h3>
+              <span class="job__co" data-i18n="e1.co">Freelance · Agencias y equipos de desarrollo</span>
+              <p data-i18n="e1.d">He trabajado en más de 20 tiendas Shopify junto a agencias y desarrolladores líderes, como especialista de implementación técnica en proyectos de cara al cliente.</p>
+              <ul>
+                <li data-i18n="e1.b1">Landing pages y páginas de producto optimizadas para conversión (CRO).</li>
+                <li data-i18n="e1.b2">Migraciones de temas legacy a Online Store 2.0 y de suscripciones, sin perder datos.</li>
+                <li data-i18n="e1.b3">Lógica de descuentos compleja y contenido dinámico con Metaobjects y Metafields.</li>
+                <li data-i18n="e1.b4">Integraciones con canales de venta, CRM, GoHighLevel y Lovable.</li>
+                <li data-i18n="e1.b5">Apps de Shopify en Ruby on Rails y checkouts con pasarelas de pago venezolanas.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="job" data-reveal>
+            <div class="job__date mono"><span data-i18n="e2.date">Mar 2026 · Abr 2026</span></div>
+            <div class="job__body">
+              <h3 data-i18n="e2.role">Desarrollador Web</h3>
+              <span class="job__co">mbtek · <span data-i18n="e2.co">Contrato</span></span>
+              <p data-i18n="e2.d">Construcción y refinamiento de funcionalidades front-end y landing pages dentro del stack web de la empresa, colaborando con el equipo para entregar en un plazo definido.</p>
+            </div>
+          </article>
+
+          <article class="job" data-reveal>
+            <div class="job__date mono"><span data-i18n="e3.date">Ago 2025 · Oct 2025</span></div>
+            <div class="job__body">
+              <h3 data-i18n="e3.role">Especialista en Desarrollo Web</h3>
+              <span class="job__co" data-i18n="e3.co">Landing pages &amp; portales de servicio</span>
+              <p data-i18n="e3.d">Desarrollo front-end de landing pages y portales de servicio con formularios dinámicos e interfaces interactivas, y despliegue de múltiples proyectos de e-commerce con compatibilidad entre navegadores.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about">
+      <div class="container about">
+        <div class="about__copy">
+          <span class="label"><span class="label__num">06</span> <span data-i18n="about.label">Sobre mí</span></span>
+          <h2 class="section__title" data-reveal data-i18n="about.title">Código con <em>intención</em> comercial.</h2>
+          <p data-reveal data-i18n="about.p1">No solo escribo código: pienso en cómo cada sección, cada carga y cada clic acercan a tu cliente al checkout. Transformo requisitos de diseño y de negocio en soluciones de e-commerce rápidas y confiables.</p>
+          <p data-reveal data-i18n="about.p2">Me encargo de la implementación de principio a fin, desde la arquitectura del tema hasta la última integración. Aprendo rápido, comunico claro y cuido cada detalle.</p>
+          <div class="edu" data-reveal>
+            <div class="edu__item"><i class="fa-solid fa-graduation-cap"></i><div><strong data-i18n="about.tsu">TSU en Informática</strong><span data-i18n="about.tsu2">UPTAIET · Graduado</span></div></div>
+            <div class="edu__item"><i class="fa-solid fa-laptop-code"></i><div><strong data-i18n="about.edu">Ingeniería en Informática</strong><span data-i18n="about.edu2">UPTAIET · En curso</span></div></div>
+          </div>
+        </div>
+
+        <div class="skills" data-reveal>
+          <div class="skills__group">
+            <h4><i class="fa-brands fa-shopify"></i> Shopify</h4>
+            <div class="chips"><span class="chip chip--hot" data-i18n="sk.liquid">Liquid (Avanzado)</span><span class="chip">Online Store 2.0</span><span class="chip">Shopify Admin</span><span class="chip">Metaobjects</span><span class="chip">Metafields</span><span class="chip">Shopify APIs</span><span class="chip" data-i18n="sk.disc">Descuentos</span><span class="chip" data-i18n="sk.mig">Migraciones</span><span class="chip" data-i18n="sk.sub">Suscripciones</span><span class="chip" data-i18n="sk.int">Canales de venta &amp; CRM</span><span class="chip chip--hot" data-i18n="sk.apps">Apps de Shopify</span><span class="chip" data-i18n="sk.pay">Pasarelas de pago</span><span class="chip">CRO</span></div>
+          </div>
+          <div class="skills__group">
+            <h4><i class="fa-solid fa-code"></i> Front-end</h4>
+            <div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip chip--hot">JavaScript</span><span class="chip">React.js</span><span class="chip">Tailwind CSS</span><span class="chip">Bootstrap</span><span class="chip" data-i18n="sk.resp">Diseño responsive</span><span class="chip" data-i18n="sk.perf">Rendimiento web</span></div>
+          </div>
+          <div class="skills__group">
+            <h4><i class="fa-solid fa-gem"></i> Back-end</h4>
+            <div class="chips"><span class="chip chip--hot">Ruby</span><span class="chip chip--hot">Ruby on Rails</span><span class="chip">Shopify GraphQL API</span><span class="chip">Webhooks</span><span class="chip">Node.js</span><span class="chip">SQL / MySQL</span><span class="chip">Supabase</span><span class="chip">PostgreSQL</span><span class="chip">Row Level Security</span></div>
+          </div>
+          <div class="skills__group">
+            <h4><i class="fa-solid fa-toolbox"></i> <span data-i18n="sk.tools">Herramientas</span></h4>
+            <div class="chips"><span class="chip">GoHighLevel</span><span class="chip">Lovable</span><span class="chip">Vercel</span><span class="chip">Render</span><span class="chip">Git</span><span class="chip">Cashea</span><span class="chip">Pago Móvil</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <span class="label"><span class="label__num">07</span> <span data-i18n="contact.label">Contacto</span></span>
+        <h2 class="contact__title" data-reveal data-i18n="contact.title">¿Tu tienda está lista para <em>vender más</em>?</h2>
+
+        <div class="contact__grid">
+          <div class="contact__left" data-reveal>
+            <p class="contact__sub" data-i18n="contact.sub">Cuéntame tu proyecto y te propongo el siguiente paso. Tiendas nuevas, rediseños, migraciones o esa funcionalidad que nadie supo resolver.</p>
+
+            <button class="mail" id="copyMail" type="button" data-cursor="Copiar">
+              <span class="mail__addr">devjoseasanchez@gmail.com</span>
+              <span class="mail__btn"><i class="fa-regular fa-copy"></i> <span id="copyLabel" data-i18n="contact.copy">Copiar</span></span>
+            </button>
+
+            <div class="contact__links">
+              <a href="https://wa.link/3gragn" target="_blank" rel="noopener" class="social" data-magnetic><i class="fa-brands fa-whatsapp"></i><span>WhatsApp</span></a>
+              <a href="https://www.linkedin.com/in/jose-sanchez-59289b383/" target="_blank" rel="noopener" class="social" data-magnetic><i class="fa-brands fa-linkedin-in"></i><span>LinkedIn</span></a>
+              <a href="https://t.me/joseasjj" target="_blank" rel="noopener" class="social" data-magnetic><i class="fa-brands fa-telegram"></i><span>Telegram</span></a>
+              <a href="https://www.instagram.com/joseasj_/" target="_blank" rel="noopener" class="social" data-magnetic><i class="fa-brands fa-instagram"></i><span>Instagram</span></a>
+              <a href="tel:+584247475773" class="social" data-magnetic><i class="fa-solid fa-phone"></i><span>+58 424 747 5773</span></a>
+            </div>
+
+            <div class="cv">
+              <span class="mono cv__label" data-i18n="contact.cv">Descargar CV</span>
+              <a href="images/cv/CV-Jose-Sanchez-ES.pdf" download="CV-Jose-Sanchez-ES.pdf" class="btn btn--ghost btn--sm"><i class="fa-solid fa-file-arrow-down"></i> <span data-i18n="contact.cves">Español</span></a>
+              <a href="images/cv/CV-Jose-Sanchez-EN.pdf" download="CV-Jose-Sanchez-EN.pdf" class="btn btn--ghost btn--sm"><i class="fa-solid fa-file-arrow-down"></i> <span data-i18n="contact.cven">Inglés</span></a>
+            </div>
+          </div>
+
+          <div class="contact__right" data-reveal>
+            <a href="https://wa.link/3gragn" target="_blank" rel="noopener" class="orb" data-magnetic="0.4" data-cursor="Hablemos">
+              <span class="orb__text">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span data-i18n="contact.orb">Empecemos</span>
+              </span>
+              <svg class="orb__circle" viewBox="0 0 200 200" aria-hidden="true">
+                <defs><path id="circlePath" d="M100,100 m-80,0 a80,80 0 1,1 160,0 a80,80 0 1,1 -160,0"/></defs>
+                <text><textPath href="#circlePath" id="orbTextPath">SHOPIFY · LIQUID · CRO · FRONT-END · INTEGRACIONES · </textPath></text>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__big" aria-hidden="true">Jose <em>Sanchez</em></div>
+      <div class="footer__row">
+        <span>© <span id="year">2026</span> Jose Sanchez · <span data-i18n="footer.made">Diseñado y programado a mano.</span></span>
+        <span class="mono"><span data-i18n="footer.time">Hora local</span> · Táchira, VE · <span id="clock">--:--</span></span>
+        <a href="#top" class="footer__top"><span data-i18n="footer.top">Volver arriba</span> <i class="fa-solid fa-arrow-up"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>

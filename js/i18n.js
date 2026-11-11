@@ -1,82 +1,338 @@
-/* Simple i18n loader for vanilla JS
-   - looks for elements with `data-i18n="key"`
-   - loads `./en.json` or `./es.json`
-   - saves chosen language in localStorage 'lang'
-*/
-(function () {
-  'use strict';
+/* Translations · ES / EN */
+window.I18N = {
+  es: {
+    'meta.title': 'Jose Sanchez · Desarrollador Shopify & Front-end',
+    'meta.desc': 'Jose Sanchez, desarrollador Shopify y Front-end. Temas a medida en Liquid, landing pages CRO, apps de Shopify en Ruby, pasarelas de pago e integraciones. Más de 20 tiendas Shopify.',
+    words: ['venden.', 'convierten.', 'escalan.', 'enamoran.'],
+    orb: 'SHOPIFY · LIQUID · CRO · RUBY · PAGOS · ',
+    copied: '¡Copiado!',
+    cursor: { Visitar: 'Visitar', Ver: 'Ver', Copiar: 'Copiar', Hablemos: 'Hablemos' },
 
-  const DEFAULT_LANG = 'en';
-  const LOCALES = { en: './en.json', es: './es.json' };
+    'pre.loading': 'Preparando la tienda',
+    'nav.role': 'Shopify Developer',
+    'nav.services': 'Servicios', 'nav.work': 'Proyectos', 'nav.stores': 'Tiendas', 'nav.exp': 'Experiencia', 'nav.about': 'Sobre mí', 'nav.contact': 'Contacto', 'nav.cta': 'Hablemos',
 
-  function getSavedLang() {
-    const saved = localStorage.getItem('lang');
-    if (saved && LOCALES[saved]) return saved;
-    const nav = (navigator.language || navigator.userLanguage || '').toLowerCase();
-    if (nav.startsWith('es')) return 'es';
-    return DEFAULT_LANG;
+    'hero.status': 'Disponible para nuevos proyectos',
+    'hero.l1': 'Tiendas Shopify',
+    'hero.l2': 'que',
+    'hero.sub': 'Soy <strong>Jose Sanchez</strong>, desarrollador Shopify y Front-end. Construyo temas a medida en Liquid, landings CRO, apps y checkouts con pagos locales que convierten visitas en ventas, en <strong>más de 20 tiendas</strong> y contando.',
+    'hero.cta1': 'Ver proyectos',
+    'hero.cta2': 'Hablemos por WhatsApp',
+    'hero.t1': 'tiendas Shopify', 'hero.t2': 'migraciones', 'hero.t3': 'landings que venden', 'hero.t4': 'apps de Shopify',
+    'hero.loc': 'Remoto · Worldwide',
+    'hero.n1': 'Nuevo pedido', 'hero.n1b': 'hace 2 min', 'hero.n2': 'Tema publicado',
+
+    'stat.1': 'Tiendas Shopify en las que he trabajado',
+    'stat.2': 'Años construyendo e-commerce',
+    'stat.3': 'Remoto, en cualquier zona horaria',
+    'stat.4': 'Implementaciones de principio a fin',
+
+    'svc.label': 'Servicios',
+    'svc.title': 'Todo lo que tu tienda necesita para <em>vender más</em>.',
+    'svc.lead': 'Desde el tema hasta la última integración: me encargo de la parte técnica para que tú te enfoques en vender.',
+    'svc.1.t': 'Desarrollo Liquid avanzado',
+    'svc.1.d': 'Secciones y bloques a medida, temas modulares y fáciles de editar para el comerciante. Código limpio que tu equipo puede mantener.',
+    'svc.1.e2': 'Reseñas', 'svc.1.e3': 'Productos', 'svc.1.e4': 'Agregar sección',
+    'svc.2.t': 'Landing pages CRO',
+    'svc.2.d': 'Páginas de producto y landings diseñadas para convertir: estructura, velocidad y persuasión.',
+    'svc.3.t': 'Migraciones sin pérdidas',
+    'svc.3.d': 'De temas legacy a Online Store 2.0 y migraciones de suscripciones, cuidando cada dato y cada cliente.',
+    'svc.4.d': 'Contenido dinámico y datos de producto complejos que tu equipo gestiona sin tocar código.',
+    'svc.5.t': 'Integraciones &amp; CRM',
+    'svc.5.d': 'Conecto Shopify con canales de venta, apps de delivery, CRM, GoHighLevel y Lovable. Pedidos que fluyen solos, sin carga manual.',
+    'svc.6.t': 'Descuentos &amp; rendimiento',
+    'svc.6.d': 'Lógica de descuentos compleja, configuración de Shopify Admin y tiendas rápidas y responsivas.',
+    'svc.7.t': 'Apps &amp; pasarelas de pago',
+    'svc.7.d': 'Apps de Shopify en Ruby on Rails y checkouts con pagos locales de Venezuela: Cashea, Pago Móvil y débito inmediato.',
+
+    'cro.label': 'Optimización de conversión',
+    'cro.title': 'Diseños que <em>suben</em> las ventas.',
+    'cro.lead': 'Me especializo en CRO: he creado landings que han generado muchas ventas y he optimizado tiendas existentes para que conviertan más. No hago páginas bonitas por hacerlas, cada decisión empuja al cliente hacia la compra.',
+    'cro.1.t': 'Landings especializadas en CRO',
+    'cro.1.d': 'Lanzamientos, campañas y productos estrella con una estructura pensada para vender.',
+    'cro.2.t': 'Optimización de tiendas existentes',
+    'cro.2.d': 'Páginas de producto, colecciones, carrito y checkout mejorados sin rehacer todo desde cero.',
+    'cro.3.t': 'Diseños que mueven la conversión',
+    'cro.3.d': 'Jerarquía visual, prueba social, urgencia y ofertas claras donde más importan.',
+    'cro.4.t': 'Velocidad que vende',
+    'cro.4.d': 'Tiendas rápidas y responsive: cada segundo menos de carga es menos abandono.',
+    'cro.d.title': 'Análisis de la tienda', 'cro.d.pill': 'Conversión en alza',
+    'cro.d.after': 'Después del rediseño', 'cro.d.before': 'Antes',
+    'cro.f1': 'Sesiones', 'cro.f2': 'Agregado al carrito', 'cro.f3': 'Checkout', 'cro.f4': 'Compra',
+
+    'work.label': 'Proyectos destacados',
+    'work.title': 'Proyectos que <em>mueven</em> negocios.',
+    'work.lead': 'Plataformas en producción, e-commerce, apps e integraciones construidas para resolver problemas reales de negocio.',
+    'p.live': 'Ver sitio en vivo',
+    'p1.tag': 'Plataforma web · En producción',
+    'p1.d': 'Sitio público y panel administrativo para un lubricentro. Los clientes consultan su historial por patente y ven cuándo les toca el próximo cambio de aceite, calculado automáticamente.',
+    'p1.b1': 'Consulta de historial por patente',
+    'p1.b2': 'Próximo cambio de aceite calculado solo',
+    'p1.b3': 'Panel con códigos QR y reportes PDF',
+    'p1.b4': 'Mobile-first, modo claro y oscuro',
+    'p2.tag': 'E-commerce · HVAC',
+    'p2.d': 'E-commerce de sistemas HVAC: bombas de calor, calderas y equipos de climatización. Construí y refiné funcionalidades front-end y landing pages dentro del stack web de la empresa.',
+    'p2.b1': 'Landing pages de categorías y productos',
+    'p2.b2': 'Mejoras de interfaz y nuevas funcionalidades',
+    'p2.b3': 'Trabajo en equipo con entregas en plazo',
+    'pc.tag': 'App de Shopify · Pagos',
+    'pc.t': 'Checkout con pagos venezolanos',
+    'pc.d': 'App de Shopify en Ruby on Rails para una tienda en Venezuela: un checkout a medida que acepta pagos locales, verifica cada transacción y crea el pedido en Shopify automáticamente.',
+    'pc.b1': 'Cashea, Pago Móvil y débito inmediato (Banco Plaza)',
+    'pc.b2': 'Verificación y conciliación automática de pagos',
+    'pc.b3': 'Tasa de cambio, descuentos y pedidos sincronizados',
+    'pc.b4': 'Envíos con oficinas de Zoom y MRW',
+    'pc.m.title': 'Pago seguro', 'pc.m.total': 'Total del pedido',
+    'pc.m.m1': 'Compra ahora, paga en cuotas', 'pc.m.m2': 'Verificación automática', 'pc.m.m3t': 'Débito inmediato',
+    'pc.m.ok': 'Pago verificado · pedido creado en Shopify',
+    'p3.tag': 'Integración',
+    'p3.t': 'Shopify × Super App de Delivery × CRM',
+    'p3.d': 'Conecté una tienda Shopify con una super app de delivery y un CRM para que todo el catálogo pueda pedirse dentro de la app, con los pedidos fluyendo automáticamente entre las tres plataformas.',
+    'p3.b1': 'Catálogo completo disponible en la app',
+    'p3.b2': 'Pedidos sincronizados automáticamente',
+    'p3.b3': 'Cero carga manual de datos',
+    'p3.s4': 'Automatización',
+    'p3.toast': 'Pedido sincronizado',
+    'p4.tag': 'Migración',
+    'p4.t': 'Migraciones de temas y suscripciones',
+    'p4.d': 'Migración de tiendas desde temas legacy a Online Store 2.0 y entre plataformas de suscripción, preservando datos y registros de clientes con el mínimo tiempo de inactividad.',
+    'p4.b1': 'Legacy → Online Store 2.0',
+    'p4.b2': 'Suscripciones migradas sin perder clientes',
+    'p4.b3': 'Mínimo tiempo de inactividad',
+    'm.t1': 'Secciones y plantillas', 'm.t2': 'Clientes', 'm.t3': 'Suscripciones', 'm.t4': 'Pedidos',
+    'm.done': '✔ Migración completa · integridad de datos verificada',
+
+    'st.label': 'Tiendas Shopify',
+    'st.title': 'Tiendas en las que <em>he colaborado</em>.',
+    'st.lead': 'Marcas de distintos países y rubros en las que he trabajado junto a agencias y equipos de desarrollo.',
+    'st.i1': 'Snacks', 'st.i2': 'Suplementos deportivos', 'st.i3': 'Equipamiento de atletismo', 'st.i4': 'Bienestar &amp; recuperación', 'st.i5': 'Librería infantil',
+    'st.i6': 'Página de producto · Salud para mascotas', 'st.i7': 'Destilería orgánica', 'st.i8': 'Vinos personalizados', 'st.i9': 'Chai &amp; té',
+    'st.x5': 'y muchas más',
+    'st.also': 'También he trabajado en',
+    'st.x1': 'Outdoor &amp; aventura', 'st.x3': 'Ropa interior deportiva',
+
+    'more.title': 'Landings &amp; portales',
+    'g2.t': 'Colección de zapatillas', 'g2.d': 'Página de colección y producto a medida.',
+    'g.portal': 'Portal médico', 'g.edu': 'Portal educativo',
+    'g3.t': 'Clínica de odontopediatría', 'g3.d': 'UI cálida y cercana, enfocada en agendar.',
+    'g4.t': 'Turrones artesanales', 'g4.d': 'Landing de producto con llamada a pedido.',
+    'g5.t': 'Asesoría inmobiliaria', 'g5.d': 'Captación de leads y agenda de asesorías.',
+    'g6.t': 'Escuela culinaria', 'g6.d': 'Cursos, talleres y formulario de inscripción.',
+
+    'proc.label': 'Proceso',
+    'proc.title': 'De la idea a <em>vender</em>, en 4 pasos.',
+    'proc.1.t': 'Descubrimiento', 'proc.1.d': 'Entiendo tu negocio, tus objetivos y lo que hoy frena tus ventas.',
+    'proc.2.t': 'Estructura', 'proc.2.d': 'Arquitectura, datos y diseño pensados para convertir y escalar.',
+    'proc.3.t': 'Desarrollo', 'proc.3.d': 'Liquid, Ruby y JavaScript limpios, rápidos y fáciles de mantener.',
+    'proc.4.t': 'Lanzamiento', 'proc.4.d': 'Publicación cuidada, pruebas entre navegadores y optimización continua.',
+
+    'exp.label': 'Experiencia',
+    'exp.title': 'Mi <em>recorrido</em>.',
+    'e1.date': 'Sep 2024 · Actualidad',
+    'e1.role': 'Desarrollador Shopify &amp; Front-end',
+    'e1.co': 'Freelance · Agencias y equipos de desarrollo',
+    'e1.d': 'He trabajado en más de 20 tiendas Shopify junto a agencias y desarrolladores líderes, como especialista de implementación técnica en proyectos de cara al cliente.',
+    'e1.b1': 'Landing pages y páginas de producto optimizadas para conversión (CRO).',
+    'e1.b2': 'Migraciones de temas legacy a Online Store 2.0 y de suscripciones, sin perder datos.',
+    'e1.b3': 'Lógica de descuentos compleja y contenido dinámico con Metaobjects y Metafields.',
+    'e1.b4': 'Integraciones con canales de venta, CRM, GoHighLevel y Lovable.',
+    'e1.b5': 'Apps de Shopify en Ruby on Rails y checkouts con pasarelas de pago venezolanas.',
+    'e2.date': 'Mar 2026 · Abr 2026',
+    'e2.role': 'Desarrollador Web',
+    'e2.co': 'Contrato',
+    'e2.d': 'Construcción y refinamiento de funcionalidades front-end y landing pages dentro del stack web de la empresa, colaborando con el equipo para entregar en un plazo definido.',
+    'e3.date': 'Ago 2025 · Oct 2025',
+    'e3.role': 'Especialista en Desarrollo Web',
+    'e3.co': 'Landing pages &amp; portales de servicio',
+    'e3.d': 'Desarrollo front-end de landing pages y portales de servicio con formularios dinámicos e interfaces interactivas, y despliegue de múltiples proyectos de e-commerce con compatibilidad entre navegadores.',
+
+    'about.label': 'Sobre mí',
+    'about.title': 'Código con <em>intención</em> comercial.',
+    'about.p1': 'No solo escribo código: pienso en cómo cada sección, cada carga y cada clic acercan a tu cliente al checkout. Transformo requisitos de diseño y de negocio en soluciones de e-commerce rápidas y confiables.',
+    'about.p2': 'Me encargo de la implementación de principio a fin, desde la arquitectura del tema hasta la última integración. Aprendo rápido, comunico claro y cuido cada detalle.',
+    'about.tsu': 'TSU en Informática', 'about.tsu2': 'UPTAIET · Graduado',
+    'about.edu': 'Ingeniería en Informática', 'about.edu2': 'UPTAIET · En curso',
+    'sk.liquid': 'Liquid (Avanzado)', 'sk.disc': 'Descuentos', 'sk.mig': 'Migraciones', 'sk.sub': 'Suscripciones',
+    'sk.int': 'Canales de venta &amp; CRM', 'sk.apps': 'Apps de Shopify', 'sk.pay': 'Pasarelas de pago',
+    'sk.resp': 'Diseño responsive', 'sk.perf': 'Rendimiento web', 'sk.tools': 'Herramientas',
+
+    'contact.label': 'Contacto',
+    'contact.title': '¿Tu tienda está lista para <em>vender más</em>?',
+    'contact.sub': 'Cuéntame tu proyecto y te propongo el siguiente paso. Tiendas nuevas, rediseños, CRO, migraciones, pagos o esa funcionalidad que nadie supo resolver.',
+    'contact.copy': 'Copiar',
+    'contact.cv': 'Descargar CV', 'contact.cves': 'Español', 'contact.cven': 'Inglés',
+    'contact.orb': 'Empecemos',
+
+    'footer.made': 'Diseñado y programado a mano.',
+    'footer.time': 'Hora local',
+    'footer.top': 'Volver arriba'
+  },
+
+  en: {
+    'meta.title': 'Jose Sanchez · Shopify & Front-end Developer',
+    'meta.desc': 'Jose Sanchez, Shopify and Front-end developer. Custom Liquid themes, CRO landing pages, Shopify apps in Ruby, payment gateways and integrations. 20+ Shopify stores.',
+    words: ['sell.', 'convert.', 'scale.', 'stand out.'],
+    orb: 'SHOPIFY · LIQUID · CRO · RUBY · PAYMENTS · ',
+    copied: 'Copied!',
+    cursor: { Visitar: 'Visit', Ver: 'View', Copiar: 'Copy', Hablemos: "Let's talk" },
+
+    'pre.loading': 'Setting up the store',
+    'nav.role': 'Shopify Developer',
+    'nav.services': 'Services', 'nav.work': 'Work', 'nav.stores': 'Stores', 'nav.exp': 'Experience', 'nav.about': 'About', 'nav.contact': 'Contact', 'nav.cta': "Let's talk",
+
+    'hero.status': 'Available for new projects',
+    'hero.l1': 'Shopify stores',
+    'hero.l2': 'that',
+    'hero.sub': "I'm <strong>Jose Sanchez</strong>, a Shopify and Front-end developer. I build custom Liquid themes, CRO landing pages, apps and checkouts with local payments that turn visits into sales, across <strong>20+ stores</strong> and counting.",
+    'hero.cta1': 'See my work',
+    'hero.cta2': 'Chat on WhatsApp',
+    'hero.t1': 'Shopify stores', 'hero.t2': 'migrations', 'hero.t3': 'landings that sell', 'hero.t4': 'Shopify apps',
+    'hero.loc': 'Remote · Worldwide',
+    'hero.n1': 'New order', 'hero.n1b': '2 min ago', 'hero.n2': 'Theme published',
+
+    'stat.1': 'Shopify stores I have worked on',
+    'stat.2': 'Years building e-commerce',
+    'stat.3': 'Remote, any time zone',
+    'stat.4': 'End-to-end implementations',
+
+    'svc.label': 'Services',
+    'svc.title': 'Everything your store needs to <em>sell more</em>.',
+    'svc.lead': 'From the theme to the very last integration: I handle the technical side so you can focus on selling.',
+    'svc.1.t': 'Advanced Liquid development',
+    'svc.1.d': 'Custom sections and blocks, modular themes merchants can edit with ease. Clean code your team can maintain.',
+    'svc.1.e2': 'Reviews', 'svc.1.e3': 'Products', 'svc.1.e4': 'Add section',
+    'svc.2.t': 'CRO landing pages',
+    'svc.2.d': 'Product pages and landings built to convert: structure, speed and persuasion.',
+    'svc.3.t': 'Lossless migrations',
+    'svc.3.d': 'Legacy themes to Online Store 2.0 and subscription migrations, protecting every record and every customer.',
+    'svc.4.d': 'Dynamic content and complex product data your team manages without touching code.',
+    'svc.5.t': 'Integrations &amp; CRM',
+    'svc.5.d': 'I connect Shopify to sales channels, delivery apps, CRMs, GoHighLevel and Lovable. Orders that flow on their own, no manual entry.',
+    'svc.6.t': 'Discounts &amp; performance',
+    'svc.6.d': 'Complex discount logic, Shopify Admin setup and fast, responsive storefronts.',
+    'svc.7.t': 'Apps &amp; payment gateways',
+    'svc.7.d': 'Shopify apps in Ruby on Rails and checkouts with local Venezuelan payments: Cashea, Pago Móvil and instant debit.',
+
+    'cro.label': 'Conversion rate optimization',
+    'cro.title': 'Designs that <em>lift</em> sales.',
+    'cro.lead': "CRO is my specialty: I've built landing pages that generated a lot of sales and optimized existing stores so they convert more. I don't make pretty pages for the sake of it, every decision pushes the customer toward checkout.",
+    'cro.1.t': 'CRO-focused landing pages',
+    'cro.1.d': 'Launches, campaigns and hero products with a structure built to sell.',
+    'cro.2.t': 'Optimizing existing stores',
+    'cro.2.d': 'Better product pages, collections, cart and checkout without rebuilding from scratch.',
+    'cro.3.t': 'Designs that move conversion',
+    'cro.3.d': 'Visual hierarchy, social proof, urgency and clear offers where they matter most.',
+    'cro.4.t': 'Speed that sells',
+    'cro.4.d': 'Fast, responsive stores: every second less of loading means less abandonment.',
+    'cro.d.title': 'Store analytics', 'cro.d.pill': 'Conversion trending up',
+    'cro.d.after': 'After the redesign', 'cro.d.before': 'Before',
+    'cro.f1': 'Sessions', 'cro.f2': 'Added to cart', 'cro.f3': 'Checkout', 'cro.f4': 'Purchase',
+
+    'work.label': 'Featured work',
+    'work.title': 'Work that <em>moves</em> businesses.',
+    'work.lead': 'Live platforms, e-commerce, apps and integrations built to solve real business problems.',
+    'p.live': 'Visit live site',
+    'p1.tag': 'Web platform · Live',
+    'p1.d': 'Public website and admin panel for an auto lubrication shop. Customers look up their service history by license plate and see when their next oil change is due, calculated automatically.',
+    'p1.b1': 'Service history lookup by license plate',
+    'p1.b2': 'Next oil change calculated automatically',
+    'p1.b3': 'Admin panel with QR codes and PDF reports',
+    'p1.b4': 'Mobile-first, light and dark mode',
+    'p2.tag': 'E-commerce · HVAC',
+    'p2.d': "HVAC e-commerce: heat pumps, boilers and climate systems. I built and refined front-end features and landing pages within the company's web stack.",
+    'p2.b1': 'Category and product landing pages',
+    'p2.b2': 'Interface improvements and new features',
+    'p2.b3': 'Team collaboration, shipped on schedule',
+    'pc.tag': 'Shopify app · Payments',
+    'pc.t': 'Checkout with Venezuelan payments',
+    'pc.d': 'A Shopify app in Ruby on Rails for a store in Venezuela: a custom checkout that accepts local payments, verifies every transaction and creates the order in Shopify automatically.',
+    'pc.b1': 'Cashea, Pago Móvil and instant debit (Banco Plaza)',
+    'pc.b2': 'Automatic payment verification and reconciliation',
+    'pc.b3': 'Exchange rates, discounts and synced orders',
+    'pc.b4': 'Shipping with Zoom and MRW pickup offices',
+    'pc.m.title': 'Secure payment', 'pc.m.total': 'Order total',
+    'pc.m.m1': 'Buy now, pay in installments', 'pc.m.m2': 'Automatic verification', 'pc.m.m3t': 'Instant debit',
+    'pc.m.ok': 'Payment verified · order created in Shopify',
+    'p3.tag': 'Integration',
+    'p3.t': 'Shopify × Delivery Super App × CRM',
+    'p3.d': 'Connected a Shopify store to a delivery super app and a CRM so the full catalog can be ordered inside the app, with orders flowing automatically across all three platforms.',
+    'p3.b1': 'Full catalog available in the app',
+    'p3.b2': 'Orders synced automatically',
+    'p3.b3': 'Zero manual data entry',
+    'p3.s4': 'Automation',
+    'p3.toast': 'Order synced',
+    'p4.tag': 'Migration',
+    'p4.t': 'Theme & subscription migrations',
+    'p4.d': 'Migrated stores from legacy themes to Online Store 2.0 and between subscription platforms, preserving data and customer records with minimal downtime.',
+    'p4.b1': 'Legacy → Online Store 2.0',
+    'p4.b2': 'Subscriptions migrated without losing customers',
+    'p4.b3': 'Minimal downtime',
+    'm.t1': 'Sections & templates', 'm.t2': 'Customers', 'm.t3': 'Subscriptions', 'm.t4': 'Orders',
+    'm.done': '✔ Migration complete · data integrity verified',
+
+    'st.label': 'Shopify stores',
+    'st.title': "Stores I've <em>collaborated on</em>.",
+    'st.lead': "Brands across different countries and industries I've worked on alongside agencies and development teams.",
+    'st.i1': 'Snacks', 'st.i2': 'Sports supplements', 'st.i3': 'Track &amp; field gear', 'st.i4': 'Wellness &amp; recovery', 'st.i5': "Children's bookstore",
+    'st.i6': 'Product page · Pet health', 'st.i7': 'Organic distillery', 'st.i8': 'Personalized wines', 'st.i9': 'Chai &amp; tea',
+    'st.x5': 'and many more',
+    'st.also': "I've also worked on",
+    'st.x1': 'Outdoor &amp; adventure', 'st.x3': 'Sports underwear',
+
+    'more.title': 'Landing pages &amp; portals',
+    'g2.t': 'Sneaker collection', 'g2.d': 'Custom collection and product page.',
+    'g.portal': 'Medical portal', 'g.edu': 'Education portal',
+    'g3.t': 'Pediatric dental clinic', 'g3.d': 'Warm, friendly UI focused on bookings.',
+    'g4.t': 'Artisan nougat', 'g4.d': 'Product landing with an order call to action.',
+    'g5.t': 'Real estate advisor', 'g5.d': 'Lead capture and consultation booking.',
+    'g6.t': 'Culinary school', 'g6.d': 'Courses, workshops and sign-up form.',
+
+    'proc.label': 'Process',
+    'proc.title': 'From idea to <em>sales</em>, in 4 steps.',
+    'proc.1.t': 'Discovery', 'proc.1.d': "I learn your business, your goals and what's holding back your sales.",
+    'proc.2.t': 'Structure', 'proc.2.d': 'Architecture, data and layout designed to convert and scale.',
+    'proc.3.t': 'Build', 'proc.3.d': 'Clean Liquid, Ruby and JavaScript. Fast and easy to maintain.',
+    'proc.4.t': 'Launch', 'proc.4.d': 'Careful launch, cross-browser testing and ongoing optimization.',
+
+    'exp.label': 'Experience',
+    'exp.title': 'My <em>journey</em>.',
+    'e1.date': 'Sep 2024 · Present',
+    'e1.role': 'Shopify &amp; Front-end Developer',
+    'e1.co': 'Freelance · Agencies &amp; development teams',
+    'e1.d': "I've worked on 20+ Shopify stores alongside agencies and lead developers, as the technical implementation specialist on client-facing projects.",
+    'e1.b1': 'Conversion-optimized (CRO) landing pages and product pages.',
+    'e1.b2': 'Legacy to Online Store 2.0 theme migrations and subscription migrations, with zero data loss.',
+    'e1.b3': 'Complex discount logic and dynamic content with Metaobjects and Metafields.',
+    'e1.b4': 'Integrations with sales channels, CRMs, GoHighLevel and Lovable.',
+    'e1.b5': 'Shopify apps in Ruby on Rails and checkouts with Venezuelan payment gateways.',
+    'e2.date': 'Mar 2026 · Apr 2026',
+    'e2.role': 'Web Developer',
+    'e2.co': 'Contract',
+    'e2.d': "Built and refined front-end features and landing pages within the company's web stack, collaborating with the team to ship under a defined timeline.",
+    'e3.date': 'Aug 2025 · Oct 2025',
+    'e3.role': 'Web Development Specialist',
+    'e3.co': 'Landing pages &amp; service portals',
+    'e3.d': 'Front-end development of landing pages and service portals with dynamic forms and interactive interfaces, plus deployment of multiple e-commerce projects with cross-browser compatibility.',
+
+    'about.label': 'About',
+    'about.title': 'Code with <em>business</em> intent.',
+    'about.p1': "I don't just write code: I think about how every section, every load and every click brings your customer closer to checkout. I turn design and business requirements into fast, reliable e-commerce solutions.",
+    'about.p2': 'I own implementations end to end, from theme architecture to the very last integration. I learn fast, communicate clearly and care about every detail.',
+    'about.tsu': 'Associate Degree in Computer Science (TSU)', 'about.tsu2': 'UPTAIET · Graduated',
+    'about.edu': 'Computer Engineering', 'about.edu2': 'UPTAIET · In progress',
+    'sk.liquid': 'Liquid (Advanced)', 'sk.disc': 'Discounts', 'sk.mig': 'Migrations', 'sk.sub': 'Subscriptions',
+    'sk.int': 'Sales channels &amp; CRM', 'sk.apps': 'Shopify apps', 'sk.pay': 'Payment gateways',
+    'sk.resp': 'Responsive design', 'sk.perf': 'Web performance', 'sk.tools': 'Tools',
+
+    'contact.label': 'Contact',
+    'contact.title': 'Is your store ready to <em>sell more</em>?',
+    'contact.sub': "Tell me about your project and I'll suggest the next step. New stores, redesigns, CRO, migrations, payments or that feature nobody could figure out.",
+    'contact.copy': 'Copy',
+    'contact.cv': 'Download CV', 'contact.cves': 'Spanish', 'contact.cven': 'English',
+    'contact.orb': "Let's start",
+
+    'footer.made': 'Designed and hand-coded.',
+    'footer.time': 'Local time',
+    'footer.top': 'Back to top'
   }
-
-  async function loadLocale(lang) {
-    try {
-      const url = LOCALES[lang] || LOCALES[DEFAULT_LANG];
-      console.debug('i18n: fetching locale', lang, url);
-      const res = await fetch(url);
-      if (!res.ok) throw new Error('no locale');
-      return await res.json();
-    } catch (err) {
-      console.warn('i18n: failed to load', lang, err);
-      return {};
-    }
-  }
-
-  function applyDictToPage(dict, fallbackDict) {
-    // translate all elements with data-i18n
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.getAttribute('data-i18n');
-      let value = dict[key];
-      // fallback to default locale if key missing in selected locale
-      if (!value && fallbackDict) value = fallbackDict[key];
-      if (!value) {
-        // keep existing content but mark missing keys in console for debugging
-        console.warn('i18n: missing key', key);
-        return;
-      }
-      // use innerHTML so translations can include <br>
-      if (el.tagName.toLowerCase() === 'title') {
-        // title should not contain HTML tags
-        document.title = value.replace(/<[^>]+>/g, '');
-      }
-      el.innerHTML = value;
-    });
-  }
-
-  async function applyLang(lang) {
-    const dict = await loadLocale(lang);
-    // also load default locale to use as fallback when a key is missing
-    const fallback = (lang === DEFAULT_LANG) ? null : await loadLocale(DEFAULT_LANG);
-    document.documentElement.lang = lang;
-    console.debug('i18n: applying language', lang, Object.keys(dict || {}).length, 'keys');
-    applyDictToPage(dict, fallback);
-    localStorage.setItem('lang', lang);
-  }
-
-  // expose helper for debugging / manual forcing from console
-  window.i18nApplyLang = applyLang;
-
-  // attach buttons
-  function attachButtons() {
-    const btnEn = document.getElementById('btn-en');
-    const btnEs = document.getElementById('btn-es');
-    if (btnEn) btnEn.addEventListener('click', () => applyLang('en'));
-    if (btnEs) btnEs.addEventListener('click', () => applyLang('es'));
-  }
-
-  // initial
-  document.addEventListener('DOMContentLoaded', async function () {
-    attachButtons();
-    const initial = getSavedLang();
-    await applyLang(initial);
-  });
-
-})();
+};
