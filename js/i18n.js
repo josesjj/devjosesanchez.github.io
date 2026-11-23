@@ -10,7 +10,7 @@ window.I18N = {
 
     'pre.loading': 'Preparando la tienda',
     'nav.role': 'Shopify Developer',
-    'nav.services': 'Servicios', 'nav.work': 'Proyectos', 'nav.stores': 'Tiendas', 'nav.exp': 'Experiencia', 'nav.about': 'Sobre mí', 'nav.contact': 'Contacto', 'nav.cta': 'Hablemos',
+    'nav.services': 'Servicios', 'nav.work': 'Proyectos', 'nav.exp': 'Experiencia', 'nav.about': 'Sobre mí', 'nav.contact': 'Contacto', 'nav.cta': 'Hablemos',
 
     'hero.status': 'Disponible para nuevos proyectos',
     'hero.l1': 'Tiendas Shopify',
@@ -102,15 +102,8 @@ window.I18N = {
     'm.t1': 'Secciones y plantillas', 'm.t2': 'Clientes', 'm.t3': 'Suscripciones', 'm.t4': 'Pedidos',
     'm.done': '✔ Migración completa · integridad de datos verificada',
 
-    'st.label': 'Tiendas Shopify',
-    'st.title': 'Tiendas en las que <em>he colaborado</em>.',
-    'st.lead': 'Marcas de distintos países y rubros en las que he trabajado junto a agencias y equipos de desarrollo.',
-    'st.i1': 'Snacks', 'st.i2': 'Suplementos deportivos', 'st.i3': 'Equipamiento de atletismo', 'st.i4': 'Bienestar &amp; recuperación', 'st.i5': 'Librería infantil',
-    'st.i6': 'Página de producto · Salud para mascotas', 'st.i7': 'Destilería orgánica', 'st.i8': 'Vinos personalizados', 'st.i9': 'Chai &amp; té',
-    'st.x5': 'y muchas más',
-    'st.also': 'También he trabajado en',
-    'st.x1': 'Outdoor &amp; aventura', 'st.x3': 'Ropa interior deportiva',
 
+    'more.label': 'Más trabajos',
     'more.title': 'Landings &amp; portales',
     'g2.t': 'Colección de zapatillas', 'g2.d': 'Página de colección y producto a medida.',
     'g.portal': 'Portal médico', 'g.edu': 'Portal educativo',
@@ -178,7 +171,7 @@ window.I18N = {
 
     'pre.loading': 'Setting up the store',
     'nav.role': 'Shopify Developer',
-    'nav.services': 'Services', 'nav.work': 'Work', 'nav.stores': 'Stores', 'nav.exp': 'Experience', 'nav.about': 'About', 'nav.contact': 'Contact', 'nav.cta': "Let's talk",
+    'nav.services': 'Services', 'nav.work': 'Work', 'nav.exp': 'Experience', 'nav.about': 'About', 'nav.contact': 'Contact', 'nav.cta': "Let's talk",
 
     'hero.status': 'Available for new projects',
     'hero.l1': 'Shopify stores',
@@ -270,15 +263,8 @@ window.I18N = {
     'm.t1': 'Sections & templates', 'm.t2': 'Customers', 'm.t3': 'Subscriptions', 'm.t4': 'Orders',
     'm.done': '✔ Migration complete · data integrity verified',
 
-    'st.label': 'Shopify stores',
-    'st.title': "Stores I've <em>collaborated on</em>.",
-    'st.lead': "Brands across different countries and industries I've worked on alongside agencies and development teams.",
-    'st.i1': 'Snacks', 'st.i2': 'Sports supplements', 'st.i3': 'Track &amp; field gear', 'st.i4': 'Wellness &amp; recovery', 'st.i5': "Children's bookstore",
-    'st.i6': 'Product page · Pet health', 'st.i7': 'Organic distillery', 'st.i8': 'Personalized wines', 'st.i9': 'Chai &amp; tea',
-    'st.x5': 'and many more',
-    'st.also': "I've also worked on",
-    'st.x1': 'Outdoor &amp; adventure', 'st.x3': 'Sports underwear',
 
+    'more.label': 'More work',
     'more.title': 'Landing pages &amp; portals',
     'g2.t': 'Sneaker collection', 'g2.d': 'Custom collection and product page.',
     'g.portal': 'Medical portal', 'g.edu': 'Education portal',
